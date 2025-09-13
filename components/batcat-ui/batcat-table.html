@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinical Table Component</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/tabulator-tables@5.5.2/dist/css/tabulator_bootstrap5.min.css" rel="stylesheet">
+    <style>
+        .batcat-table-container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .batcat-table-header {
+            background: #f8fafc;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 1rem;
+        }
+        
+        .batcat-table-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin: 0;
+        }
+        
+        .batcat-table-subtitle {
+            color: #64748b;
+            font-size: 0.875rem;
+            margin: 0.25rem 0 0 0;
+        }
+        
+        .batcat-table-actions {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+        
+        .batcat-table-search {
+            position: relative;
+        }
+        
+        .batcat-table-search input {
+            padding-left: 2.5rem;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 0.875rem;
+        }
+        
+        .batcat-table-search i {
+            position: absolute;
+            left: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9ca3af;
+        }
+        
+        .batcat-table-filters {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .batcat-table-filter {
+            background: white;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            color: #374151;
+        }
+        
+        .batcat-table-filter.active {
+            background: #3b82f6;
+            color: white;
+            border-color: #3b82f6;
+        }
+        
+        .batcat-table-pagination {
+            background: #f8fafc;
+            border-top: 1px solid #e2e8f0;
+            padding: 1rem;
+            display: flex;
+            justify-content: between;
+            align-items: center;
+        }
+        
+        .batcat-table-info {
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+        
+        .batcat-table-pagination-controls {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .batcat-table-btn {
+            background: white;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            padding: 0.375rem 0.75rem;
+            font-size: 0.875rem;
+            color: #374151;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .batcat-table-btn:hover:not(:disabled) {
+            background: #f3f4f6;
+            border-color: #9ca3af;
+        }
+        
+        .batcat-table-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .batcat-table-btn.active {
+            background: #3b82f6;
+            color: white;
+            border-color: #3b82f6;
+        }
+        
+        .batcat-table-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .batcat-table-status.active {
+            background: #dcfce7;
+            color: #166534;
+        }
+        
+        .batcat-table-status.inactive {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+        
+        .batcat-table-status.pending {
+            background: #fef3c7;
+            color: #d97706;
+        }
+        
+        .batcat-table-actions-cell {
+            display: flex;
+            gap: 0.25rem;
+        }
+        
+        .batcat-table-action-btn {
+            background: none;
+            border: none;
+            color: #6b7280;
+            cursor: pointer;
+            padding: 0.25rem;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+        
+        .batcat-table-action-btn:hover {
+            background: #f3f4f6;
+            color: #374151;
+        }
+        
+        .batcat-table-responsive {
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <h2>Clinical Table Component</h2>
+        <p class="lead">A comprehensive table component with Tabulator integration for clinical data display.</p>
+        
+        <!-- batcat-UI Table Component -->
+        <div class="batcat-table-container">
+            <!-- Table Header -->
+            <div class="batcat-table-header">
+                <div class="d-flex justify-content-between align-items-start mb-3">
+                    <div>
+                        <h3 class="batcat-table-title">Patient List</h3>
+                        <p class="batcat-table-subtitle">Manage and view patient information</p>
+                    </div>
+                    <div class="batcat-table-actions">
+                        <button class="btn btn-primary btn-sm">
+                            <i class="fas fa-plus me-1"></i>
+                            Add Patient
+                        </button>
+                        <button class="btn btn-outline-secondary btn-sm">
+                            <i class="fas fa-download me-1"></i>
+                            Export
+                        </button>
+                        <button class="btn btn-outline-secondary btn-sm">
+                            <i class="fas fa-cog"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Search and Filters -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="batcat-table-search">
+                            <i class="fas fa-search"></i>
+                            <input type="text" class="form-control" placeholder="Search patients..." id="searchInput">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="batcat-table-filters">
+                            <button class="batcat-table-filter active" data-filter="all">All</button>
+                            <button class="batcat-table-filter" data-filter="active">Active</button>
+                            <button class="batcat-table-filter" data-filter="inactive">Inactive</button>
+                            <button class="batcat-table-filter" data-filter="pending">Pending</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Table Content -->
+            <div class="batcat-table-responsive">
+                <div id="batcat-table"></div>
+            </div>
+            
+            <!-- Table Pagination -->
+            <div class="batcat-table-pagination">
+                <div class="batcat-table-info">
+                    Showing <span id="showing-start">1</span> to <span id="showing-end">10</span> of <span id="total-records">25</span> entries
+                </div>
+                <div class="batcat-table-pagination-controls">
+                    <button class="batcat-table-btn" id="first-page">
+                        <i class="fas fa-angle-double-left"></i>
+                    </button>
+                    <button class="batcat-table-btn" id="prev-page">
+                        <i class="fas fa-angle-left"></i>
+                    </button>
+                    <span id="page-numbers"></span>
+                    <button class="batcat-table-btn" id="next-page">
+                        <i class="fas fa-angle-right"></i>
+                    </button>
+                    <button class="batcat-table-btn" id="last-page">
+                        <i class="fas fa-angle-double-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Usage Documentation -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <h3>Features</h3>
+                <ul>
+                    <li><strong>Sorting:</strong> Click column headers to sort data</li>
+                    <li><strong>Filtering:</strong> Use search and filter buttons</li>
+                    <li><strong>Pagination:</strong> Navigate through large datasets</li>
+                    <li><strong>Responsive:</strong> Adapts to different screen sizes</li>
+                    <li><strong>Actions:</strong> Row-level action buttons</li>
+                    <li><strong>Status Indicators:</strong> Visual status representation</li>
+                </ul>
+                
+                <h3>Usage</h3>
+                <pre><code>&lt;div class="batcat-table-container"&gt;
+    &lt;div class="batcat-table-header"&gt;
+        &lt;h3 class="batcat-table-title"&gt;Table Title&lt;/h3&gt;
+        &lt;!-- Search and filters --&gt;
+    &lt;/div&gt;
+    &lt;div id="batcat-table"&gt;&lt;/div&gt;
+    &lt;div class="batcat-table-pagination"&gt;
+        &lt;!-- Pagination controls --&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                
+                <h3>Data Format</h3>
+                <pre><code>const tableData = [
+    {
+        id: 1,
+        name: "John Doe",
+        status: "active",
+        room: "101A",
+        acuity: 3,
+        lastVisit: "2024-01-15"
+    }
+];</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/tabulator-tables@5.5.2/dist/js/tabulator.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Sample data
+            const tableData = [
+                {
+                    id: 1,
+                    name: "John Doe",
+                    status: "active",
+                    room: "101A",
+                    acuity: 3,
+                    lastVisit: "2024-01-15",
+                    provider: "Dr. Smith"
+                },
+                {
+                    id: 2,
+                    name: "Jane Smith",
+                    status: "pending",
+                    room: "102B",
+                    acuity: 2,
+                    lastVisit: "2024-01-14",
+                    provider: "Dr. Johnson"
+                },
+                {
+                    id: 3,
+                    name: "Bob Wilson",
+                    status: "inactive",
+                    room: "103C",
+                    acuity: 4,
+                    lastVisit: "2024-01-13",
+                    provider: "Dr. Brown"
+                },
+                {
+                    id: 4,
+                    name: "Alice Johnson",
+                    status: "active",
+                    room: "104A",
+                    acuity: 1,
+                    lastVisit: "2024-01-16",
+                    provider: "Dr. Davis"
+                },
+                {
+                    id: 5,
+                    name: "Charlie Brown",
+                    status: "active",
+                    room: "105B",
+                    acuity: 3,
+                    lastVisit: "2024-01-15",
+                    provider: "Dr. Wilson"
+                }
+            ];
+            
+            // Initialize Tabulator
+            const table = new Tabulator("#batcat-table", {
+                data: tableData,
+                layout: "fitColumns",
+                pagination: "local",
+                paginationSize: 10,
+                paginationSizeSelector: [5, 10, 20, 50],
+                columns: [
+                    {
+                        title: "Patient",
+                        field: "name",
+                        width: 150,
+                        formatter: function(cell, formatterParams) {
+                            return `<div class="d-flex align-items-center">
+                                <div class="me-2">
+                                    <i class="fas fa-user-circle text-muted"></i>
+                                </div>
+                                <div>
+                                    <div class="fw-semibold">${cell.getValue()}</div>
+                                    <small class="text-muted">ID: ${cell.getRow().getData().id}</small>
+                                </div>
+                            </div>`;
+                        }
+                    },
+                    {
+                        title: "Status",
+                        field: "status",
+                        width: 100,
+                        formatter: function(cell, formatterParams) {
+                            const status = cell.getValue();
+                            const statusClass = status === 'active' ? 'active' : 
+                                             status === 'pending' ? 'pending' : 'inactive';
+                            return `<span class="batcat-table-status ${statusClass}">
+                                <i class="fas fa-circle"></i>
+                                ${status.charAt(0).toUpperCase() + status.slice(1)}
+                            </span>`;
+                        }
+                    },
+                    {
+                        title: "Room",
+                        field: "room",
+                        width: 80,
+                        formatter: function(cell, formatterParams) {
+                            return `<span class="badge bg-light text-dark">${cell.getValue()}</span>`;
+                        }
+                    },
+                    {
+                        title: "Acuity",
+                        field: "acuity",
+                        width: 80,
+                        formatter: function(cell, formatterParams) {
+                            const acuity = cell.getValue();
+                            const color = acuity <= 2 ? 'success' : acuity <= 3 ? 'warning' : 'danger';
+                            return `<span class="badge bg-${color}">${acuity}</span>`;
+                        }
+                    },
+                    {
+                        title: "Provider",
+                        field: "provider",
+                        width: 120
+                    },
+                    {
+                        title: "Last Visit",
+                        field: "lastVisit",
+                        width: 100
+                    },
+                    {
+                        title: "Actions",
+                        field: "actions",
+                        width: 120,
+                        formatter: function(cell, formatterParams) {
+                            return `<div class="batcat-table-actions-cell">
+                                <button class="batcat-table-action-btn" title="View">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="batcat-table-action-btn" title="Edit">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="batcat-table-action-btn" title="Delete">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>`;
+                        }
+                    }
+                ]
+            });
+            
+            // Search functionality
+            $('#searchInput').on('input', function() {
+                const value = $(this).val();
+                table.setFilter("name", "like", value);
+            });
+            
+            // Filter functionality
+            $('.batcat-table-filter').on('click', function() {
+                $('.batcat-table-filter').removeClass('active');
+                $(this).addClass('active');
+                
+                const filter = $(this).data('filter');
+                if (filter === 'all') {
+                    table.clearFilter();
+                } else {
+                    table.setFilter("status", "=", filter);
+                }
+            });
+            
+            // Pagination controls
+            $('#first-page').on('click', function() {
+                table.setPage(1);
+            });
+            
+            $('#prev-page').on('click', function() {
+                table.previousPage();
+            });
+            
+            $('#next-page').on('click', function() {
+                table.nextPage();
+            });
+            
+            $('#last-page').on('click', function() {
+                table.setPage(table.getPageMax());
+            });
+            
+            // Update pagination info
+            table.on("dataLoaded", function(data) {
+                updatePaginationInfo();
+            });
+            
+            table.on("pageLoaded", function(pageno) {
+                updatePaginationInfo();
+            });
+            
+            function updatePaginationInfo() {
+                const page = table.getPage();
+                const size = table.getPageSize();
+                const total = table.getDataCount();
+                const start = (page - 1) * size + 1;
+                const end = Math.min(page * size, total);
+                
+                $('#showing-start').text(start);
+                $('#showing-end').text(end);
+                $('#total-records').text(total);
+            }
+            
+            console.log('Clinical Table component loaded');
+        });
+    </script>
+</body>
+</html>

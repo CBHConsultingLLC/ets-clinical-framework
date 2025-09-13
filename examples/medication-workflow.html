@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medication Workflow Example</title>
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="mpage-component">
+        <div class="workflow-container">
+            <h1>Medication Administration Workflow</h1>
+            
+            <!-- Workflow Steps -->
+            <div class="workflow-steps">
+                <div class="workflow-step active">
+                    <div class="step-number">1</div>
+                    <div class="step-title">Patient Verification</div>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-number">2</div>
+                    <div class="step-title">Medication Selection</div>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-number">3</div>
+                    <div class="step-title">Dosage Verification</div>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-number">4</div>
+                    <div class="step-title">Administration</div>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-number">5</div>
+                    <div class="step-title">Documentation</div>
+                </div>
+            </div>
+
+            <!-- Workflow Content -->
+            <div class="workflow-content">
+                <div class="workflow-step-content" id="step-1">
+                    <h3>Step 1: Patient Verification</h3>
+                    <p>Verify patient identity using two patient identifiers before administering medication.</p>
+                    
+                    <div class="verification-form">
+                        <div class="form-group">
+                            <label for="patient-name">Patient Name:</label>
+                            <input type="text" id="patient-name" class="form-control" placeholder="Enter patient name" value="John Doe">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="patient-dob">Date of Birth:</label>
+                            <input type="date" id="patient-dob" class="form-control" value="1985-03-15">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="patient-mrn">Medical Record Number:</label>
+                            <input type="text" id="patient-mrn" class="form-control" placeholder="Enter MRN" value="12345678">
+                        </div>
+                        
+                        <div class="verification-status">
+                            <div class="status-item">
+                                <i class="fas fa-check-circle text-success"></i>
+                                <span>Name verified</span>
+                            </div>
+                            <div class="status-item">
+                                <i class="fas fa-check-circle text-success"></i>
+                                <span>DOB verified</span>
+                            </div>
+                            <div class="status-item">
+                                <i class="fas fa-check-circle text-success"></i>
+                                <span>MRN verified</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="workflow-step-content d-none" id="step-2">
+                    <h3>Step 2: Medication Selection</h3>
+                    <p>Select the medication to be administered from the patient's medication list.</p>
+                    
+                    <div class="medication-list">
+                        <div class="medication-item selected">
+                            <div class="medication-info">
+                                <h4>Lisinopril 10mg</h4>
+                                <p>Once daily, Oral</p>
+                                <span class="medication-status active">Active</span>
+                            </div>
+                            <button class="btn btn-primary">Selected</button>
+                        </div>
+                        
+                        <div class="medication-item">
+                            <div class="medication-info">
+                                <h4>Metformin 500mg</h4>
+                                <p>Twice daily, Oral</p>
+                                <span class="medication-status active">Active</span>
+                            </div>
+                            <button class="btn btn-outline">Select</button>
+                        </div>
+                        
+                        <div class="medication-item">
+                            <div class="medication-info">
+                                <h4>Aspirin 81mg</h4>
+                                <p>Once daily, Oral</p>
+                                <span class="medication-status active">Active</span>
+                            </div>
+                            <button class="btn btn-outline">Select</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="workflow-step-content d-none" id="step-3">
+                    <h3>Step 3: Dosage Verification</h3>
+                    <p>Verify the correct dosage and administration route for the selected medication.</p>
+                    
+                    <div class="dosage-verification">
+                        <div class="verification-card">
+                            <h4>Selected Medication</h4>
+                            <div class="medication-details">
+                                <div class="detail-item">
+                                    <label>Medication:</label>
+                                    <span>Lisinopril 10mg</span>
+                                </div>
+                                <div class="detail-item">
+                                    <label>Prescribed Dosage:</label>
+                                    <span>10mg</span>
+                                </div>
+                                <div class="detail-item">
+                                    <label>Route:</label>
+                                    <span>Oral</span>
+                                </div>
+                                <div class="detail-item">
+                                    <label>Frequency:</label>
+                                    <span>Once daily</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="verification-actions">
+                            <div class="form-group">
+                                <label for="administered-dose">Administered Dose:</label>
+                                <input type="text" id="administered-dose" class="form-control" value="10mg">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="administered-time">Administration Time:</label>
+                                <input type="datetime-local" id="administered-time" class="form-control" value="2024-01-15T14:30">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="workflow-step-content d-none" id="step-4">
+                    <h3>Step 4: Administration</h3>
+                    <p>Confirm administration details and record any observations.</p>
+                    
+                    <div class="administration-form">
+                        <div class="form-group">
+                            <label>Administration Status:</label>
+                            <div class="radio-group">
+                                <label class="radio-item">
+                                    <input type="radio" name="admin-status" value="completed" checked>
+                                    <span>Completed</span>
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="admin-status" value="refused">
+                                    <span>Refused</span>
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="admin-status" value="not-given">
+                                    <span>Not Given</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="observations">Observations:</label>
+                            <textarea id="observations" class="form-control" rows="3" placeholder="Record any observations or side effects">No adverse reactions observed. Patient tolerated medication well.</textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="administered-by">Administered By:</label>
+                            <input type="text" id="administered-by" class="form-control" value="Nurse Smith">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="workflow-step-content d-none" id="step-5">
+                    <h3>Step 5: Documentation</h3>
+                    <p>Review and confirm all documentation before completing the workflow.</p>
+                    
+                    <div class="documentation-summary">
+                        <div class="summary-section">
+                            <h4>Patient Information</h4>
+                            <div class="summary-item">
+                                <span>Name:</span>
+                                <span>John Doe</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>DOB:</span>
+                                <span>03/15/1985</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>MRN:</span>
+                                <span>12345678</span>
+                            </div>
+                        </div>
+                        
+                        <div class="summary-section">
+                            <h4>Medication Details</h4>
+                            <div class="summary-item">
+                                <span>Medication:</span>
+                                <span>Lisinopril 10mg</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Dose:</span>
+                                <span>10mg</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Route:</span>
+                                <span>Oral</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Time:</span>
+                                <span>2024-01-15 14:30</span>
+                            </div>
+                        </div>
+                        
+                        <div class="summary-section">
+                            <h4>Administration</h4>
+                            <div class="summary-item">
+                                <span>Status:</span>
+                                <span>Completed</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Administered By:</span>
+                                <span>Nurse Smith</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Observations:</span>
+                                <span>No adverse reactions observed</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Workflow Controls -->
+            <div class="workflow-controls">
+                <button class="btn btn-outline workflow-prev" disabled>
+                    <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button class="btn btn-primary workflow-next">
+                    Next <i class="fas fa-arrow-right"></i>
+                </button>
+                <button class="btn btn-success workflow-complete d-none">
+                    <i class="fas fa-check"></i> Complete Workflow
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .verification-form {
+            max-width: 500px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: var(--cerner-dark-blue);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--cerner-border);
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .verification-status {
+            margin-top: 20px;
+            padding: 15px;
+            background: var(--cerner-light-gray);
+            border-radius: 8px;
+        }
+        
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .text-success {
+            color: var(--cerner-success);
+        }
+        
+        .text-danger {
+            color: var(--cerner-danger);
+        }
+        
+        .medication-list {
+            max-width: 600px;
+        }
+        
+        .medication-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border: 1px solid var(--cerner-border);
+            border-radius: 8px;
+            margin-bottom: 10px;
+            background: white;
+            transition: all 0.3s ease;
+        }
+        
+        .medication-item.selected {
+            border-color: var(--cerner-blue);
+            background: var(--cerner-light-gray);
+        }
+        
+        .medication-info h4 {
+            margin: 0 0 5px 0;
+            color: var(--cerner-dark-blue);
+        }
+        
+        .medication-info p {
+            margin: 0 0 5px 0;
+            color: var(--cerner-gray);
+        }
+        
+        .medication-status {
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .medication-status.active {
+            background-color: var(--cerner-success);
+            color: white;
+        }
+        
+        .dosage-verification {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .verification-card {
+            background: var(--cerner-light-gray);
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .medication-details {
+            margin-top: 15px;
+        }
+        
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--cerner-border);
+        }
+        
+        .detail-item:last-child {
+            border-bottom: none;
+        }
+        
+        .detail-item label {
+            font-weight: 600;
+            color: var(--cerner-gray);
+        }
+        
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
+        }
+        
+        .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+        }
+        
+        .documentation-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .summary-section {
+            background: var(--cerner-light-gray);
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .summary-section h4 {
+            color: var(--cerner-dark-blue);
+            margin-bottom: 15px;
+        }
+        
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+            border-bottom: 1px solid var(--cerner-border);
+        }
+        
+        .summary-item:last-child {
+            border-bottom: none;
+        }
+        
+        .workflow-controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--cerner-border);
+        }
+        
+        @media (max-width: 768px) {
+            .dosage-verification {
+                grid-template-columns: 1fr;
+            }
+            
+            .documentation-summary {
+                grid-template-columns: 1fr;
+            }
+            
+            .workflow-controls {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+
+    <script src="../assets/js/main.js"></script>
+    <script>
+        // Workflow-specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const workflowContainer = document.querySelector('.workflow-container');
+            const steps = workflowContainer.querySelectorAll('.workflow-step');
+            const stepContents = workflowContainer.querySelectorAll('.workflow-step-content');
+            const nextBtn = workflowContainer.querySelector('.workflow-next');
+            const prevBtn = workflowContainer.querySelector('.workflow-prev');
+            const completeBtn = workflowContainer.querySelector('.workflow-complete');
+            let currentStep = 0;
+            
+            function updateWorkflowStep(stepIndex) {
+                // Update step indicators
+                steps.forEach((step, index) => {
+                    step.classList.remove('active', 'completed');
+                    if (index < stepIndex) {
+                        step.classList.add('completed');
+                    } else if (index === stepIndex) {
+                        step.classList.add('active');
+                    }
+                });
+                
+                // Update step content
+                stepContents.forEach((content, index) => {
+                    if (index === stepIndex) {
+                        content.classList.remove('d-none');
+                    } else {
+                        content.classList.add('d-none');
+                    }
+                });
+                
+                // Update button states
+                prevBtn.disabled = stepIndex === 0;
+                
+                if (stepIndex === steps.length - 1) {
+                    nextBtn.classList.add('d-none');
+                    completeBtn.classList.remove('d-none');
+                } else {
+                    nextBtn.classList.remove('d-none');
+                    completeBtn.classList.add('d-none');
+                }
+            }
+            
+            nextBtn.addEventListener('click', function() {
+                if (currentStep < steps.length - 1) {
+                    currentStep++;
+                    updateWorkflowStep(currentStep);
+                }
+            });
+            
+            prevBtn.addEventListener('click', function() {
+                if (currentStep > 0) {
+                    currentStep--;
+                    updateWorkflowStep(currentStep);
+                }
+            });
+            
+            completeBtn.addEventListener('click', function() {
+                alert('Workflow completed successfully!');
+                // Here you would typically submit the data to the server
+            });
+            
+            // Initialize first step
+            updateWorkflowStep(0);
+        });
+    </script>
+</body>
+</html>

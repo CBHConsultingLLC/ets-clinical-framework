@@ -1,0 +1,45 @@
+{
+  "name": "cerner-mpage-components",
+  "version": "1.0.0",
+  "description": "A comprehensive collection of reusable components for Cerner PowerChart mPages",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve .",
+    "dev": "serve . -l 3000",
+    "build": "echo 'No build process required for static site'",
+    "test": "echo 'No tests specified'",
+    "lint": "echo 'Linting HTML, CSS, and JS files'",
+    "deploy": "gh-pages -d ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/cerner-mpage-components.git"
+  },
+  "keywords": [
+    "cerner",
+    "mpage",
+    "healthcare",
+    "components",
+    "ui",
+    "powerchart",
+    "clinical",
+    "workflow",
+    "clinical-ui",
+    "bootstrap",
+    "jquery",
+    "tabulator"
+  ],
+  "author": "Your Name <your.email@example.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yourusername/cerner-mpage-components/issues"
+  },
+  "homepage": "https://yourusername.github.io/cerner-mpage-components",
+  "devDependencies": {
+    "serve": "^14.2.1",
+    "gh-pages": "^6.0.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

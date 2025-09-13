@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cerner mPage Components Portfolio</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h1><i class="fas fa-hospital"></i> Cerner mPage Components</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#components" class="nav-link">Components</a></li>
+                <li><a href="#mpage-functions" class="nav-link">mPage Functions</a></li>
+                <li><a href="#examples" class="nav-link">Examples</a></li>
+                <li><a href="#documentation" class="nav-link">Documentation</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h2>Professional Cerner mPage Components</h2>
+                <p>Reusable, maintainable, and production-ready components for Cerner PowerChart mPages</p>
+                <div class="hero-buttons">
+                    <a href="#components" class="btn btn-primary">Explore Components</a>
+                    <a href="#examples" class="btn btn-secondary">View Examples</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Components Overview -->
+        <section id="components" class="components-section">
+            <div class="container">
+                <h2>Component Categories</h2>
+                <div class="components-grid">
+                    <div class="component-card">
+                        <div class="component-icon">
+                            <i class="fas fa-desktop"></i>
+                        </div>
+                        <h3>Full Page mPages</h3>
+                        <p>Complete page implementations with navigation, data display, and user interactions</p>
+                        <a href="components/full-pages/" class="btn btn-outline">View Examples</a>
+                    </div>
+                    
+                    <div class="component-card">
+                        <div class="component-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>Workflow mPages</h3>
+                        <p>Step-by-step workflow components for clinical processes and data entry</p>
+                        <a href="components/workflows/" class="btn btn-outline">View Examples</a>
+                    </div>
+                    
+                    <div class="component-card">
+                        <div class="component-icon">
+                            <i class="fas fa-list"></i>
+                        </div>
+                        <h3>Worklist mPages</h3>
+                        <p>Data listing and management components with filtering and sorting capabilities</p>
+                        <a href="components/worklists/" class="btn btn-outline">View Examples</a>
+                    </div>
+                    
+                    <div class="component-card">
+                        <div class="component-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Summary mPages</h3>
+                        <p>Dashboard and summary view components for data visualization</p>
+                        <a href="components/summaries/" class="btn btn-outline">View Examples</a>
+                    </div>
+                    
+                    <div class="component-card">
+                        <div class="component-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <h3>Alerts</h3>
+                        <p>Notification and alert components for system messaging and user feedback</p>
+                        <a href="components/alerts/" class="btn btn-outline">View Examples</a>
+                    </div>
+                    
+                    <div class="component-card">
+                        <div class="component-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h3>Reports</h3>
+                        <p>Report generation and display components for data analysis and documentation</p>
+                        <a href="components/reports/" class="btn btn-outline">View Examples</a>
+                    </div>
+                    
+                    <div class="component-card">
+                        <div class="component-icon">
+                            <i class="fas fa-puzzle-piece"></i>
+                        </div>
+                        <h3>Clinical UI Components</h3>
+                        <p>Reusable UI components for headers, footers, tables, inputs, media, and rich text editing</p>
+                        <a href="components/batcat-ui/" class="btn btn-outline">View Components</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Examples Section -->
+        <section id="examples" class="examples-section">
+            <div class="container">
+                <h2>Live Examples</h2>
+                <div class="examples-grid">
+                    <div class="example-card">
+                        <h3>Patient Summary Dashboard</h3>
+                        <p>Comprehensive patient overview with vital signs, medications, and recent activities</p>
+                        <div class="example-preview">
+                            <iframe src="examples/patient-summary.html" frameborder="0"></iframe>
+                        </div>
+                        <a href="examples/patient-summary.html" class="btn btn-primary" target="_blank">Open Full Example</a>
+                    </div>
+                    
+                    <div class="example-card">
+                        <h3>Medication Workflow</h3>
+                        <p>Step-by-step medication administration workflow with validation</p>
+                        <div class="example-preview">
+                            <iframe src="examples/medication-workflow.html" frameborder="0"></iframe>
+                        </div>
+                        <a href="examples/medication-workflow.html" class="btn btn-primary" target="_blank">Open Full Example</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Documentation Section -->
+        <section id="documentation" class="documentation-section">
+            <div class="container">
+                <h2>Documentation</h2>
+                <div class="doc-grid">
+                    <div class="doc-card">
+                        <h3><i class="fas fa-book"></i> Getting Started</h3>
+                        <p>Learn how to integrate and use these components in your Cerner mPage projects</p>
+                        <a href="docs/getting-started.html" class="btn btn-outline">Read Guide</a>
+                    </div>
+                    
+                    <div class="doc-card">
+                        <h3><i class="fas fa-code"></i> API Reference</h3>
+                        <p>Complete API documentation for all components and their properties</p>
+                        <a href="docs/api-reference.html" class="btn btn-outline">View API</a>
+                    </div>
+                    
+                    <div class="doc-card">
+                        <h3><i class="fas fa-palette"></i> Styling Guide</h3>
+                        <p>Customization options and theming guidelines for consistent UI</p>
+                        <a href="docs/styling-guide.html" class="btn btn-outline">View Guide</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- mPage Functions Section -->
+        <section id="mpage-functions" class="mpage-functions-section">
+            <div class="container">
+                <h2>mPage Core Functions & APIs</h2>
+                <p class="section-description">Essential Cerner mPage functions and utilities for PowerChart development</p>
+                
+                <div class="functions-grid">
+                    <!-- Core mPage Functions -->
+                    <div class="function-category">
+                        <h3><i class="fas fa-cogs"></i> Core mPage Functions</h3>
+                        <div class="function-list">
+                            <div class="function-item">
+                                <h4>MPageView()</h4>
+                                <p>Base class for all mPage views. Provides core functionality for rendering, resizing, and managing mPage components.</p>
+                                <div class="function-example">
+                                    <pre><code>function MyMPage() {
+    MPageView.call(this);
+}
+MyMPage.prototype = new MPageView();
+MyMPage.prototype.constructor = MPageView;</code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="function-item">
+                                <h4>renderView()</h4>
+                                <p>Renders the mPage view content. Called automatically when the mPage is displayed.</p>
+                                <div class="function-example">
+                                    <pre><code>MyMPage.prototype.renderView = function() {
+    var html = '&lt;div class="mpage-content"&gt;Content&lt;/div&gt;';
+    this.getElement().html(html);
+};</code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="function-item">
+                                <h4>resizeView()</h4>
+                                <p>Handles mPage resizing events. Called when the browser window or mPage container is resized.</p>
+                                <div class="function-example">
+                                    <pre><code>MyMPage.prototype.resizeView = function() {
+    // Handle resize logic
+    this.adjustLayout();
+};</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- CCL Integration Functions -->
+                    <div class="function-category">
+                        <h3><i class="fas fa-database"></i> CCL Integration</h3>
+                        <div class="function-list">
+                            <div class="function-item">
+                                <h4>MP_Core.XMLCCLRequest()</h4>
+                                <p>Makes CCL requests to the Cerner backend. Used for data retrieval and business logic execution.</p>
+                                <div class="function-example">
+                                    <pre><code>var request = new ScriptRequest();
+request.setProgramName("MY_CCL_PROGRAM")
+    .setParameterArray(["param1", "param2"])
+    .setResponseHandler(function(response) {
+        // Handle response
+    })
+    .performRequest();</code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="function-item">
+                                <h4>CCLEVENT()</h4>
+                                <p>Handles CCL events and callbacks. Used for asynchronous operations and event-driven programming.</p>
+                                <div class="function-example">
+                                    <pre><code>CCLEVENT("EVENT_NAME", function(data) {
+    // Handle event data
+    console.log("Event received:", data);
+});</code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="function-item">
+                                <h4>CCLLINK()</h4>
+                                <p>Creates links to other Cerner applications or mPages. Handles navigation and deep linking.</p>
+                                <div class="function-example">
+                                    <pre><code>CCLLINK("APPLICATION_NAME", {
+    param1: "value1",
+    param2: "value2"
+});</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Patient Context Functions -->
+                    <div class="function-category">
+                        <h3><i class="fas fa-user-md"></i> Patient Context</h3>
+                        <div class="function-list">
+                            <div class="function-item">
+                                <h4>getPatientId()</h4>
+                                <p>Retrieves the current patient ID from the mPage context.</p>
+                                <div class="function-example">
+                                    <pre><code>var patientId = getPatientId();
+console.log("Current patient:", patientId);</code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="function-item">
+                                <h4>getEncounterId()</h4>
+                                <p>Retrieves the current encounter ID from the mPage context.</p>
+                                <div class="function-example">
+                                    <pre><code>var encounterId = getEncounterId();
+console.log("Current encounter:", encounterId);</code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="function-item">
+                                <h4>getProviderId()</h4>
+                                <p>Retrieves the current provider ID from the mPage context.</p>
+                                <div class="function-example">
+                                    <pre><code>var providerId = getProviderId();
+console.log("Current provider:", providerId);</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- UI Control Functions -->
+                    <div class="function-category">
+                        <h3><i class="fas fa-mouse-pointer"></i> UI Controls</h3>
+                        <div class="function-list">
+                            <div class="function-item">
+                                <h4>MPageControls.Control</h4>
+                                <p>Base class for all mPage UI controls. Provides common functionality for form elements and interactive components.</p>
+                                <div class="function-example">
+                                    <pre><code>var control = new MPageControls.Control();
+control.setElement($("#my-element"));
+control.setValue("default value");
+control.render();</code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="function-item">
+                                <h4>Selector</h4>
+                                <p>Dropdown/select control for mPages. Handles option management and selection events.</p>
+                                <div class="function-example">
+                                    <pre><code>var selector = new Selector($("#my-select"), {
+    displayField: "name",
+    valueField: "id",
+    options: dataArray
+});
+selector.init();</code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="function-item">
+                                <h4>TemplateEngine</h4>
+                                <p>Template rendering engine for generating HTML content dynamically.</p>
+                                <div class="function-example">
+                                    <pre><code>var template = new TemplateEngine.Template(function(data) {
+    return '&lt;div class="item"&gt;' + data.name + '&lt;/div&gt;';
+});
+var html = template.render({name: "John Doe"});</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Data Management Functions -->
+                    <div class="function-category">
+                        <h3><i class="fas fa-table"></i> Data Management</h3>
+                        <div class="function-list">
+                            <div class="function-item">
+                                <h4>HealtheIntent.Utils.serviceRequest()</h4>
+                                <p>Makes HTTP service requests to external APIs. Used for integrating with HealtheIntent services.</p>
+                                <div class="function-example">
+                                    <pre><code>HealtheIntent.Utils.serviceRequest("SERVICE_NAME", "endpoint", {
+    personId: getPatientId(),
+    providerId: getProviderId()
+}).then(function(data) {
+    // Handle response data
+});</code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="function-item">
+                                <h4>serializeFormToJson()</h4>
+                                <p>Serializes form data to JSON format for easy data handling.</p>
+                                <div class="function-example">
+                                    <pre><code>var formData = HealtheIntent.Utils.serializeFormToJson($("#my-form"));
+console.log("Form data:", formData);</code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="function-item">
+                                <h4>resultsTable</h4>
+                                <p>Utility for displaying tabular data with pagination, sorting, and filtering capabilities.</p>
+                                <div class="function-example">
+                                    <pre><code>var table = new ResultsTable($("#table-container"), {
+    data: tableData,
+    columns: columnDefinitions,
+    pageSize: 25
+});
+table.render();</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Event Handling Functions -->
+                    <div class="function-category">
+                        <h3><i class="fas fa-bolt"></i> Event Handling</h3>
+                        <div class="function-list">
+                            <div class="function-item">
+                                <h4>mpage.on()</h4>
+                                <p>Event listener for mPage-specific events. Handles custom events and system notifications.</p>
+                                <div class="function-example">
+                                    <pre><code>mpage.on("patientChanged", function(patientData) {
+    console.log("Patient changed:", patientData);
+    // Update UI with new patient data
+});</code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="function-item">
+                                <h4>mpage.trigger()</h4>
+                                <p>Triggers custom mPage events. Used for communication between components.</p>
+                                <div class="function-example">
+                                    <pre><code>mpage.trigger("dataUpdated", {
+    type: "vitals",
+    data: vitalSignsData
+});</code></pre>
+                                </div>
+                            </div>
+                            
+                            <div class="function-item">
+                                <h4>CONMANAPPNOTIFIER</h4>
+                                <p>Handles application notifications and alerts within the mPage context.</p>
+                                <div class="function-example">
+                                    <pre><code>CONMANAPPNOTIFIER.showNotification({
+    type: "success",
+    message: "Data saved successfully",
+    duration: 3000
+});</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="functions-footer">
+                    <h3>Additional Resources</h3>
+                    <div class="resource-links">
+                        <a href="MPage/UCern Wiki/CCL Functions - MPages Development Wiki - Cerner Wiki.htm" class="btn btn-outline" target="_blank">
+                            <i class="fas fa-book"></i> CCL Functions Documentation
+                        </a>
+                        <a href="MPage/UCern Wiki/Context Variables - MPages Development Wiki - Cerner Wiki.htm" class="btn btn-outline" target="_blank">
+                            <i class="fas fa-code"></i> Context Variables Guide
+                        </a>
+                        <a href="MPage/UCern Wiki/MPages Development Wiki Home - MPages Development Wiki - Cerner Wiki.htm" class="btn btn-outline" target="_blank">
+                            <i class="fas fa-home"></i> Complete mPage Wiki
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2>About This Repository</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>This repository contains a comprehensive collection of reusable Cerner mPage components designed to accelerate development, improve code quality, and ensure consistency across healthcare applications.</p>
+                        
+                        <h3>Key Benefits:</h3>
+                        <ul>
+                            <li><strong>Faster Development:</strong> Pre-built components reduce development time by 60-80%</li>
+                            <li><strong>Improved Stability:</strong> Battle-tested components with comprehensive error handling</li>
+                            <li><strong>Better Maintenance:</strong> Centralized updates and consistent code patterns</li>
+                            <li><strong>Enhanced Reproducibility:</strong> Standardized implementations across projects</li>
+                        </ul>
+                        
+                        <h3>Component Features:</h3>
+                        <ul>
+                            <li>Responsive design for all screen sizes</li>
+                            <li>Accessibility compliance (WCAG 2.1)</li>
+                            <li>Cross-browser compatibility</li>
+                            <li>Modular architecture for easy customization</li>
+                            <li>Comprehensive documentation and examples</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Components</h3>
+                    <ul>
+                        <li><a href="components/full-pages/">Full Page mPages</a></li>
+                        <li><a href="components/workflows/">Workflow mPages</a></li>
+                        <li><a href="components/worklists/">Worklist mPages</a></li>
+                        <li><a href="components/summaries/">Summary mPages</a></li>
+                        <li><a href="components/alerts/">Alerts</a></li>
+                        <li><a href="components/reports/">Reports</a></li>
+                        <li><a href="components/batcat-ui/">Clinical UI Components</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="docs/getting-started.html">Getting Started</a></li>
+                        <li><a href="docs/api-reference.html">API Reference</a></li>
+                        <li><a href="docs/styling-guide.html">Styling Guide</a></li>
+                        <li><a href="examples/">Live Examples</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>For questions, suggestions, or contributions, please reach out through GitHub issues or pull requests.</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Cerner mPage Components. Built for healthcare professionals.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

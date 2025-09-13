@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Summary Example</title>
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="mpage-component full-page-mpage">
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1 class="page-title">Patient Summary</h1>
+            <p class="page-subtitle">Comprehensive patient overview and clinical information</p>
+        </div>
+
+        <!-- Patient Information Card -->
+        <div class="page-content">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2>Patient Information</h2>
+                <div class="d-flex gap-2">
+                    <button class="btn btn-outline">
+                        <i class="fas fa-edit"></i> Edit
+                    </button>
+                    <button class="btn btn-outline">
+                        <i class="fas fa-print"></i> Print
+                    </button>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="info-group">
+                        <label>Patient Name:</label>
+                        <span>John Doe</span>
+                    </div>
+                    <div class="info-group">
+                        <label>Date of Birth:</label>
+                        <span>March 15, 1985</span>
+                    </div>
+                    <div class="info-group">
+                        <label>MRN:</label>
+                        <span>12345678</span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="info-group">
+                        <label>Gender:</label>
+                        <span>Male</span>
+                    </div>
+                    <div class="info-group">
+                        <label>Age:</label>
+                        <span>39 years</span>
+                    </div>
+                    <div class="info-group">
+                        <label>Room:</label>
+                        <span>Room 204</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vital Signs Summary -->
+        <div class="page-content">
+            <h2>Vital Signs</h2>
+            <div class="summary-dashboard">
+                <div class="summary-card">
+                    <div class="summary-title">Blood Pressure</div>
+                    <div class="summary-value">120/80</div>
+                    <div class="summary-change positive">
+                        <i class="fas fa-arrow-down"></i> Normal
+                    </div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-title">Heart Rate</div>
+                    <div class="summary-value">72 bpm</div>
+                    <div class="summary-change positive">
+                        <i class="fas fa-arrow-down"></i> Normal
+                    </div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-title">Temperature</div>
+                    <div class="summary-value">98.6°F</div>
+                    <div class="summary-change positive">
+                        <i class="fas fa-arrow-down"></i> Normal
+                    </div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-title">Oxygen Saturation</div>
+                    <div class="summary-value">98%</div>
+                    <div class="summary-change positive">
+                        <i class="fas fa-arrow-down"></i> Normal
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Current Medications -->
+        <div class="page-content">
+            <h2>Current Medications</h2>
+            <div class="worklist-container">
+                <div class="worklist-table-container">
+                    <table class="worklist-table">
+                        <thead>
+                            <tr>
+                                <th>Medication</th>
+                                <th>Dosage</th>
+                                <th>Frequency</th>
+                                <th>Route</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Lisinopril</td>
+                                <td>10mg</td>
+                                <td>Once daily</td>
+                                <td>Oral</td>
+                                <td><span class="status-badge active">Active</span></td>
+                            </tr>
+                            <tr>
+                                <td>Metformin</td>
+                                <td>500mg</td>
+                                <td>Twice daily</td>
+                                <td>Oral</td>
+                                <td><span class="status-badge active">Active</span></td>
+                            </tr>
+                            <tr>
+                                <td>Aspirin</td>
+                                <td>81mg</td>
+                                <td>Once daily</td>
+                                <td>Oral</td>
+                                <td><span class="status-badge active">Active</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Activities -->
+        <div class="page-content">
+            <h2>Recent Activities</h2>
+            <div class="activity-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Medication Administered</div>
+                        <div class="timeline-time">2 hours ago</div>
+                        <div class="timeline-description">Lisinopril 10mg administered by Nurse Smith</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Vital Signs Taken</div>
+                        <div class="timeline-time">4 hours ago</div>
+                        <div class="timeline-description">BP: 120/80, HR: 72, Temp: 98.6°F</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Doctor Visit</div>
+                        <div class="timeline-time">6 hours ago</div>
+                        <div class="timeline-description">Dr. Johnson completed routine checkup</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .info-group {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--cerner-border);
+        }
+        
+        .info-group label {
+            font-weight: 600;
+            color: var(--cerner-gray);
+            min-width: 120px;
+        }
+        
+        .row {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .col-md-6 {
+            flex: 1;
+        }
+        
+        .status-badge {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .status-badge.active {
+            background-color: var(--cerner-success);
+            color: white;
+        }
+        
+        .activity-timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        .timeline-marker {
+            position: absolute;
+            left: -25px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background-color: var(--cerner-blue);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px var(--cerner-border);
+        }
+        
+        .timeline-content {
+            background: var(--cerner-light-gray);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 3px solid var(--cerner-blue);
+        }
+        
+        .timeline-title {
+            font-weight: 600;
+            color: var(--cerner-dark-blue);
+            margin-bottom: 5px;
+        }
+        
+        .timeline-time {
+            font-size: 12px;
+            color: var(--cerner-gray);
+            margin-bottom: 5px;
+        }
+        
+        .timeline-description {
+            color: var(--text-light);
+        }
+        
+        @media (max-width: 768px) {
+            .row {
+                flex-direction: column;
+            }
+        }
+    </style>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

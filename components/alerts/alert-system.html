@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alert System - Alert Components</title>
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/components.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="mpage-component">
+        <div class="page-header">
+            <h1 class="page-title">Alert System</h1>
+            <p class="page-subtitle">Comprehensive alert management and notification system</p>
+        </div>
+
+        <!-- Alert Controls -->
+        <div class="page-content">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2>Alert Management</h2>
+                <div class="d-flex gap-2">
+                    <button class="btn btn-primary" id="create-alert-btn">
+                        <i class="fas fa-plus"></i> Create Alert
+                    </button>
+                    <button class="btn btn-outline" id="mark-all-read-btn">
+                        <i class="fas fa-check-double"></i> Mark All Read
+                    </button>
+                    <button class="btn btn-outline" id="clear-alerts-btn">
+                        <i class="fas fa-trash"></i> Clear All
+                    </button>
+                </div>
+            </div>
+
+            <!-- Alert Filters -->
+            <div class="alert-filters">
+                <div class="filter-group">
+                    <label for="alert-type-filter">Alert Type:</label>
+                    <select id="alert-type-filter" class="filter-select">
+                        <option value="">All Types</option>
+                        <option value="critical">Critical</option>
+                        <option value="warning">Warning</option>
+                        <option value="info">Information</option>
+                        <option value="success">Success</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="alert-status-filter">Status:</label>
+                    <select id="alert-status-filter" class="filter-select">
+                        <option value="">All Status</option>
+                        <option value="unread">Unread</option>
+                        <option value="read">Read</option>
+                        <option value="acknowledged">Acknowledged</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="alert-time-filter">Time Range:</label>
+                    <select id="alert-time-filter" class="filter-select">
+                        <option value="">All Time</option>
+                        <option value="1h">Last Hour</option>
+                        <option value="24h">Last 24 Hours</option>
+                        <option value="7d">Last 7 Days</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="alert-search">Search:</label>
+                    <input type="text" id="alert-search" class="filter-input" placeholder="Search alerts...">
+                </div>
+            </div>
+        </div>
+
+        <!-- Alert Examples -->
+        <div class="page-content">
+            <h2>Alert Examples</h2>
+            <p>Click the buttons below to see different types of alerts in action:</p>
+            
+            <div class="alert-demo-buttons">
+                <button class="btn btn-danger show-alert-btn" data-alert-type="critical">
+                    <i class="fas fa-exclamation-triangle"></i> Critical Alert
+                </button>
+                <button class="btn btn-warning show-alert-btn" data-alert-type="warning">
+                    <i class="fas fa-exclamation-circle"></i> Warning Alert
+                </button>
+                <button class="btn btn-info show-alert-btn" data-alert-type="info">
+                    <i class="fas fa-info-circle"></i> Info Alert
+                </button>
+                <button class="btn btn-success show-alert-btn" data-alert-type="success">
+                    <i class="fas fa-check-circle"></i> Success Alert
+                </button>
+            </div>
+        </div>
+
+        <!-- Alert List -->
+        <div class="page-content">
+            <h2>Active Alerts</h2>
+            <div class="alerts-container" id="alerts-container">
+                <!-- Critical Alerts -->
+                <div class="alert alert-danger" data-alert-type="critical" data-status="unread">
+                    <div class="alert-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="alert-content">
+                        <div class="alert-title">Critical Lab Result</div>
+                        <div class="alert-message">Patient John Doe - Potassium level critical (2.1 mEq/L). Immediate intervention required.</div>
+                        <div class="alert-meta">
+                            <span class="alert-time">2 minutes ago</span>
+                            <span class="alert-source">Lab System</span>
+                            <span class="alert-priority">High Priority</span>
+                        </div>
+                    </div>
+                    <div class="alert-actions">
+                        <button class="btn-icon" title="Acknowledge">
+                            <i class="fas fa-check"></i>
+                        </button>
+                        <button class="btn-icon" title="View Details">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="btn-icon" title="Dismiss">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="alert alert-danger" data-alert-type="critical" data-status="read">
+                    <div class="alert-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div class="alert-content">
+                        <div class="alert-title">Code Blue Alert</div>
+                        <div class="alert-message">Patient Jane Smith in Room 156 - Cardiac arrest detected. Emergency response team dispatched.</div>
+                        <div class="alert-meta">
+                            <span class="alert-time">15 minutes ago</span>
+                            <span class="alert-source">Monitoring System</span>
+                            <span class="alert-priority">Critical Priority</span>
+                        </div>
+                    </div>
+                    <div class="alert-actions">
+                        <button class="btn-icon" title="Acknowledge">
+                            <i class="fas fa-check"></i>
+                        </button>
+                        <button class="btn-icon" title="View Details">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="btn-icon" title="Dismiss">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Warning Alerts -->
+                <div class="alert alert-warning" data-alert-type="warning" data-status="unread">
+                    <div class="alert-icon">
+                        <i class="fas fa-exclamation-circle"></i>
+                    </div>
+                    <div class="alert-content">
+                        <div class="alert-title">Medication Overdue</div>
+                        <div class="alert-message">Patient Robert Johnson - Lisinopril 10mg is 2 hours overdue for administration.</div>
+                        <div class="alert-meta">
+                            <span class="alert-time">1 hour ago</span>
+                            <span class="alert-source">Medication System</span>
+                            <span class="alert-priority">Medium Priority</span>
+                        </div>
+                    </div>
+                    <div class="alert-actions">
+                        <button class="btn-icon" title="Acknowledge">
+                            <i class="fas fa-check"></i>
+                        </button>
+                        <button class="btn-icon" title="View Details">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="btn-icon" title="Dismiss">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="alert alert-warning" data-alert-type="warning" data-status="acknowledged">
+                    <div class="alert-icon">
+                        <i class="fas fa-thermometer-half"></i>
+                    </div>
+                    <div class="alert-content">
+                        <div class="alert-title">Elevated Temperature</div>
+                        <div class="alert-message">Patient Mary Williams - Temperature reading 101.2°F, above normal range.</div>
+                        <div class="alert-meta">
+                            <span class="alert-time">3 hours ago</span>
+                            <span class="alert-source">Vital Signs Monitor</span>
+                            <span class="alert-priority">Medium Priority</span>
+                        </div>
+                    </div>
+                    <div class="alert-actions">
+                        <button class="btn-icon" title="Acknowledge">
+                            <i class="fas fa-check"></i>
+                        </button>
+                        <button class="btn-icon" title="View Details">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="btn-icon" title="Dismiss">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Info Alerts -->
+                <div class="alert alert-info" data-alert-type="info" data-status="unread">
+                    <div class="alert-icon">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <div class="alert-content">
+                        <div class="alert-title">Discharge Ready</div>
+                        <div class="alert-message">Patient David Brown - All discharge criteria have been met. Ready for discharge planning.</div>
+                        <div class="alert-meta">
+                            <span class="alert-time">2 hours ago</span>
+                            <span class="alert-source">Care Management</span>
+                            <span class="alert-priority">Low Priority</span>
+                        </div>
+                    </div>
+                    <div class="alert-actions">
+                        <button class="btn-icon" title="Acknowledge">
+                            <i class="fas fa-check"></i>
+                        </button>
+                        <button class="btn-icon" title="View Details">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="btn-icon" title="Dismiss">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Success Alerts -->
+                <div class="alert alert-success" data-alert-type="success" data-status="read">
+                    <div class="alert-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="alert-content">
+                        <div class="alert-title">Medication Administered</div>
+                        <div class="alert-message">Patient Lisa Davis - Metformin 500mg successfully administered by Nurse Johnson.</div>
+                        <div class="alert-meta">
+                            <span class="alert-time">4 hours ago</span>
+                            <span class="alert-source">Medication System</span>
+                            <span class="alert-priority">Low Priority</span>
+                        </div>
+                    </div>
+                    <div class="alert-actions">
+                        <button class="btn-icon" title="Acknowledge">
+                            <i class="fas fa-check"></i>
+                        </button>
+                        <button class="btn-icon" title="View Details">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="btn-icon" title="Dismiss">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Alert Statistics -->
+        <div class="page-content">
+            <h2>Alert Statistics</h2>
+            <div class="alert-stats">
+                <div class="stat-card">
+                    <div class="stat-icon critical">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number">2</div>
+                        <div class="stat-label">Critical Alerts</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon warning">
+                        <i class="fas fa-exclamation-circle"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number">2</div>
+                        <div class="stat-label">Warning Alerts</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon info">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number">1</div>
+                        <div class="stat-label">Info Alerts</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon success">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number">1</div>
+                        <div class="stat-label">Success Alerts</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .alert-filters {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 20px;
+            background: var(--cerner-light-gray);
+            border-radius: 8px;
+        }
+        
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .filter-group label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--cerner-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .filter-select,
+        .filter-input {
+            padding: 8px 12px;
+            border: 1px solid var(--cerner-border);
+            border-radius: 4px;
+            font-size: 14px;
+            background: white;
+        }
+        
+        .alert-demo-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        
+        .alert {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .alert:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .alert[data-status="read"] {
+            opacity: 0.7;
+        }
+        
+        .alert[data-status="acknowledged"] {
+            opacity: 0.5;
+            background-color: #f8f9fa;
+        }
+        
+        .alert-icon {
+            font-size: 20px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+        
+        .alert-content {
+            flex: 1;
+        }
+        
+        .alert-title {
+            font-weight: 600;
+            margin: 0 0 8px 0;
+            font-size: 16px;
+        }
+        
+        .alert-message {
+            margin: 0 0 10px 0;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        
+        .alert-meta {
+            display: flex;
+            gap: 15px;
+            font-size: 12px;
+            color: var(--cerner-gray);
+        }
+        
+        .alert-priority {
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .alert-actions {
+            display: flex;
+            gap: 5px;
+            flex-shrink: 0;
+        }
+        
+        .btn-icon {
+            background: none;
+            border: 1px solid var(--cerner-border);
+            color: var(--cerner-blue);
+            padding: 8px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-icon:hover {
+            background-color: var(--cerner-blue);
+            color: white;
+        }
+        
+        .alerts-container {
+            max-height: 600px;
+            overflow-y: auto;
+        }
+        
+        .alert-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .stat-card {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid;
+        }
+        
+        .stat-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: white;
+        }
+        
+        .stat-icon.critical {
+            background-color: var(--cerner-danger);
+        }
+        
+        .stat-icon.warning {
+            background-color: var(--cerner-warning);
+        }
+        
+        .stat-icon.info {
+            background-color: var(--cerner-info);
+        }
+        
+        .stat-icon.success {
+            background-color: var(--cerner-success);
+        }
+        
+        .stat-content {
+            flex: 1;
+        }
+        
+        .stat-number {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--cerner-dark-blue);
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: var(--cerner-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        @media (max-width: 768px) {
+            .alert-filters {
+                grid-template-columns: 1fr;
+            }
+            
+            .alert-demo-buttons {
+                flex-direction: column;
+            }
+            
+            .alert {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .alert-actions {
+                align-self: flex-end;
+            }
+            
+            .alert-meta {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+    </style>
+
+    <script src="../../assets/js/main.js"></script>
+    <script>
+        // Alert system specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const alertsContainer = document.getElementById('alerts-container');
+            const createAlertBtn = document.getElementById('create-alert-btn');
+            const markAllReadBtn = document.getElementById('mark-all-read-btn');
+            const clearAlertsBtn = document.getElementById('clear-alerts-btn');
+            const alertTypeFilter = document.getElementById('alert-type-filter');
+            const alertStatusFilter = document.getElementById('alert-status-filter');
+            const alertTimeFilter = document.getElementById('alert-time-filter');
+            const alertSearch = document.getElementById('alert-search');
+            
+            // Create alert functionality
+            createAlertBtn.addEventListener('click', function() {
+                showCreateAlertModal();
+            });
+            
+            // Mark all as read
+            markAllReadBtn.addEventListener('click', function() {
+                const unreadAlerts = alertsContainer.querySelectorAll('[data-status="unread"]');
+                unreadAlerts.forEach(alert => {
+                    alert.setAttribute('data-status', 'read');
+                });
+                updateAlertStats();
+                alert('All alerts marked as read');
+            });
+            
+            // Clear all alerts
+            clearAlertsBtn.addEventListener('click', function() {
+                if (confirm('Are you sure you want to clear all alerts?')) {
+                    alertsContainer.innerHTML = '<p class="text-center">No alerts found</p>';
+                    updateAlertStats();
+                }
+            });
+            
+            // Filter functionality
+            [alertTypeFilter, alertStatusFilter, alertTimeFilter, alertSearch].forEach(filter => {
+                filter.addEventListener('change', filterAlerts);
+                filter.addEventListener('input', filterAlerts);
+            });
+            
+            // Alert action handlers
+            alertsContainer.addEventListener('click', function(e) {
+                const btn = e.target.closest('.btn-icon');
+                if (!btn) return;
+                
+                const alert = btn.closest('.alert');
+                const action = btn.title;
+                
+                switch(action) {
+                    case 'Acknowledge':
+                        acknowledgeAlert(alert);
+                        break;
+                    case 'View Details':
+                        viewAlertDetails(alert);
+                        break;
+                    case 'Dismiss':
+                        dismissAlert(alert);
+                        break;
+                }
+            });
+            
+            function showCreateAlertModal() {
+                const alertType = prompt('Enter alert type (critical, warning, info, success):');
+                if (!alertType) return;
+                
+                const title = prompt('Enter alert title:');
+                if (!title) return;
+                
+                const message = prompt('Enter alert message:');
+                if (!message) return;
+                
+                createNewAlert(alertType, title, message);
+            }
+            
+            function createNewAlert(type, title, message) {
+                const alertElement = document.createElement('div');
+                alertElement.className = `alert alert-${type}`;
+                alertElement.setAttribute('data-alert-type', type);
+                alertElement.setAttribute('data-status', 'unread');
+                
+                const iconMap = {
+                    critical: 'exclamation-triangle',
+                    warning: 'exclamation-circle',
+                    info: 'info-circle',
+                    success: 'check-circle'
+                };
+                
+                alertElement.innerHTML = `
+                    <div class="alert-icon">
+                        <i class="fas fa-${iconMap[type]}"></i>
+                    </div>
+                    <div class="alert-content">
+                        <div class="alert-title">${title}</div>
+                        <div class="alert-message">${message}</div>
+                        <div class="alert-meta">
+                            <span class="alert-time">Just now</span>
+                            <span class="alert-source">Manual Entry</span>
+                            <span class="alert-priority">Medium Priority</span>
+                        </div>
+                    </div>
+                    <div class="alert-actions">
+                        <button class="btn-icon" title="Acknowledge">
+                            <i class="fas fa-check"></i>
+                        </button>
+                        <button class="btn-icon" title="View Details">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="btn-icon" title="Dismiss">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                `;
+                
+                alertsContainer.insertBefore(alertElement, alertsContainer.firstChild);
+                updateAlertStats();
+            }
+            
+            function acknowledgeAlert(alert) {
+                alert.setAttribute('data-status', 'acknowledged');
+                updateAlertStats();
+            }
+            
+            function viewAlertDetails(alert) {
+                const title = alert.querySelector('.alert-title').textContent;
+                const message = alert.querySelector('.alert-message').textContent;
+                alert(`Alert Details:\n\nTitle: ${title}\nMessage: ${message}`);
+            }
+            
+            function dismissAlert(alert) {
+                alert.style.opacity = '0';
+                setTimeout(() => {
+                    alert.remove();
+                    updateAlertStats();
+                }, 300);
+            }
+            
+            function filterAlerts() {
+                const typeFilter = alertTypeFilter.value;
+                const statusFilter = alertStatusFilter.value;
+                const timeFilter = alertTimeFilter.value;
+                const searchTerm = alertSearch.value.toLowerCase();
+                
+                const alerts = alertsContainer.querySelectorAll('.alert');
+                
+                alerts.forEach(alert => {
+                    const alertType = alert.getAttribute('data-alert-type');
+                    const alertStatus = alert.getAttribute('data-status');
+                    const alertTitle = alert.querySelector('.alert-title').textContent.toLowerCase();
+                    const alertMessage = alert.querySelector('.alert-message').textContent.toLowerCase();
+                    
+                    let showAlert = true;
+                    
+                    // Type filter
+                    if (typeFilter && alertType !== typeFilter) {
+                        showAlert = false;
+                    }
+                    
+                    // Status filter
+                    if (statusFilter && alertStatus !== statusFilter) {
+                        showAlert = false;
+                    }
+                    
+                    // Search filter
+                    if (searchTerm && !alertTitle.includes(searchTerm) && !alertMessage.includes(searchTerm)) {
+                        showAlert = false;
+                    }
+                    
+                    // Time filter (simplified for demo)
+                    if (timeFilter) {
+                        // This would typically check against actual timestamps
+                        showAlert = true;
+                    }
+                    
+                    alert.style.display = showAlert ? '' : 'none';
+                });
+            }
+            
+            function updateAlertStats() {
+                const alerts = alertsContainer.querySelectorAll('.alert');
+                const stats = {
+                    critical: 0,
+                    warning: 0,
+                    info: 0,
+                    success: 0
+                };
+                
+                alerts.forEach(alert => {
+                    const type = alert.getAttribute('data-alert-type');
+                    if (stats.hasOwnProperty(type)) {
+                        stats[type]++;
+                    }
+                });
+                
+                // Update stat cards
+                Object.keys(stats).forEach(type => {
+                    const statCard = document.querySelector(`.stat-icon.${type}`).closest('.stat-card');
+                    const statNumber = statCard.querySelector('.stat-number');
+                    statNumber.textContent = stats[type];
+                });
+            }
+            
+            // Initialize alert stats
+            updateAlertStats();
+        });
+    </script>
+</body>
+</html>

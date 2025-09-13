@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient List - Worklist mPage</title>
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/components.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="mpage-component">
+        <div class="worklist-container">
+            <!-- Worklist Header -->
+            <div class="worklist-header">
+                <h1 class="worklist-title">Patient List</h1>
+                <div class="worklist-filters">
+                    <input type="text" class="filter-input" placeholder="Search patients..." id="search-input">
+                    <select class="filter-input" id="status-filter">
+                        <option value="">All Status</option>
+                        <option value="active">Active</option>
+                        <option value="discharged">Discharged</option>
+                        <option value="pending">Pending</option>
+                    </select>
+                    <select class="filter-input" id="unit-filter">
+                        <option value="">All Units</option>
+                        <option value="icu">ICU</option>
+                        <option value="med-surg">Med-Surg</option>
+                        <option value="cardiology">Cardiology</option>
+                    </select>
+                    <button class="btn btn-outline" id="refresh-btn">
+                        <i class="fas fa-sync-alt"></i> Refresh
+                    </button>
+                </div>
+            </div>
+
+            <!-- Worklist Table -->
+            <div class="worklist-table-container">
+                <table class="worklist-table" id="patient-table">
+                    <thead>
+                        <tr>
+                            <th>
+                                <input type="checkbox" id="select-all">
+                            </th>
+                            <th>Patient Name</th>
+                            <th>MRN</th>
+                            <th>DOB</th>
+                            <th>Room</th>
+                            <th>Status</th>
+                            <th>Admission Date</th>
+                            <th>Primary Diagnosis</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="checkbox" class="patient-checkbox"></td>
+                            <td>
+                                <div class="patient-info">
+                                    <div class="patient-name">John Doe</div>
+                                    <div class="patient-gender">Male, 39 years</div>
+                                </div>
+                            </td>
+                            <td>12345678</td>
+                            <td>03/15/1985</td>
+                            <td>Room 204</td>
+                            <td><span class="status-badge active">Active</span></td>
+                            <td>01/10/2024</td>
+                            <td>Hypertension</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn-icon" title="View Details">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn-icon" title="Edit">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn-icon" title="Print">
+                                        <i class="fas fa-print"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="patient-checkbox"></td>
+                            <td>
+                                <div class="patient-info">
+                                    <div class="patient-name">Jane Smith</div>
+                                    <div class="patient-gender">Female, 45 years</div>
+                                </div>
+                            </td>
+                            <td>87654321</td>
+                            <td>07/22/1978</td>
+                            <td>Room 156</td>
+                            <td><span class="status-badge active">Active</span></td>
+                            <td>01/12/2024</td>
+                            <td>Diabetes Type 2</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn-icon" title="View Details">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn-icon" title="Edit">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn-icon" title="Print">
+                                        <i class="fas fa-print"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="patient-checkbox"></td>
+                            <td>
+                                <div class="patient-info">
+                                    <div class="patient-name">Robert Johnson</div>
+                                    <div class="patient-gender">Male, 62 years</div>
+                                </div>
+                            </td>
+                            <td>11223344</td>
+                            <td>12/03/1961</td>
+                            <td>Room 301</td>
+                            <td><span class="status-badge pending">Pending</span></td>
+                            <td>01/14/2024</td>
+                            <td>Pneumonia</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn-icon" title="View Details">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn-icon" title="Edit">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn-icon" title="Print">
+                                        <i class="fas fa-print"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="patient-checkbox"></td>
+                            <td>
+                                <div class="patient-info">
+                                    <div class="patient-name">Mary Williams</div>
+                                    <div class="patient-gender">Female, 28 years</div>
+                                </div>
+                            </td>
+                            <td>55667788</td>
+                            <td>09/14/1995</td>
+                            <td>Room 102</td>
+                            <td><span class="status-badge discharged">Discharged</span></td>
+                            <td>01/08/2024</td>
+                            <td>Appendectomy</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn-icon" title="View Details">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn-icon" title="Edit">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn-icon" title="Print">
+                                        <i class="fas fa-print"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="patient-checkbox"></td>
+                            <td>
+                                <div class="patient-info">
+                                    <div class="patient-name">David Brown</div>
+                                    <div class="patient-gender">Male, 55 years</div>
+                                </div>
+                            </td>
+                            <td>99887766</td>
+                            <td>04/28/1968</td>
+                            <td>Room 205</td>
+                            <td><span class="status-badge active">Active</span></td>
+                            <td>01/13/2024</td>
+                            <td>Cardiac Arrhythmia</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn-icon" title="View Details">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn-icon" title="Edit">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn-icon" title="Print">
+                                        <i class="fas fa-print"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pagination -->
+            <div class="worklist-pagination">
+                <div class="pagination-info">
+                    Showing 1-5 of 25 patients
+                </div>
+                <div class="pagination-controls">
+                    <button class="pagination-btn" disabled>
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <button class="pagination-btn active">1</button>
+                    <button class="pagination-btn">2</button>
+                    <button class="pagination-btn">3</button>
+                    <button class="pagination-btn">4</button>
+                    <button class="pagination-btn">5</button>
+                    <button class="pagination-btn">
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .worklist-table-container {
+            overflow-x: auto;
+        }
+        
+        .patient-info {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .patient-name {
+            font-weight: 600;
+            color: var(--cerner-dark-blue);
+            margin-bottom: 2px;
+        }
+        
+        .patient-gender {
+            font-size: 12px;
+            color: var(--cerner-gray);
+        }
+        
+        .status-badge {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .status-badge.active {
+            background-color: var(--cerner-success);
+            color: white;
+        }
+        
+        .status-badge.pending {
+            background-color: var(--cerner-warning);
+            color: #856404;
+        }
+        
+        .status-badge.discharged {
+            background-color: var(--cerner-gray);
+            color: white;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .btn-icon {
+            background: none;
+            border: 1px solid var(--cerner-border);
+            color: var(--cerner-blue);
+            padding: 6px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-icon:hover {
+            background-color: var(--cerner-blue);
+            color: white;
+        }
+        
+        .pagination-btn.active {
+            background-color: var(--cerner-blue);
+            color: white;
+        }
+        
+        .pagination-btn {
+            min-width: 40px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .worklist-filters {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .worklist-table {
+                font-size: 12px;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .pagination-controls {
+                flex-wrap: wrap;
+                gap: 5px;
+            }
+        }
+    </style>
+
+    <script src="../../assets/js/main.js"></script>
+    <script>
+        // Worklist-specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('search-input');
+            const statusFilter = document.getElementById('status-filter');
+            const unitFilter = document.getElementById('unit-filter');
+            const refreshBtn = document.getElementById('refresh-btn');
+            const selectAllCheckbox = document.getElementById('select-all');
+            const patientCheckboxes = document.querySelectorAll('.patient-checkbox');
+            const table = document.getElementById('patient-table');
+            const tbody = table.querySelector('tbody');
+            
+            // Search functionality
+            searchInput.addEventListener('input', function() {
+                filterTable();
+            });
+            
+            // Filter functionality
+            statusFilter.addEventListener('change', filterTable);
+            unitFilter.addEventListener('change', filterTable);
+            
+            // Refresh functionality
+            refreshBtn.addEventListener('click', function() {
+                // Simulate refresh
+                refreshBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Refreshing...';
+                setTimeout(() => {
+                    refreshBtn.innerHTML = '<i class="fas fa-sync-alt"></i> Refresh';
+                    alert('Data refreshed successfully!');
+                }, 1000);
+            });
+            
+            // Select all functionality
+            selectAllCheckbox.addEventListener('change', function() {
+                patientCheckboxes.forEach(checkbox => {
+                    checkbox.checked = this.checked;
+                });
+            });
+            
+            // Individual checkbox change
+            patientCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    updateSelectAllState();
+                });
+            });
+            
+            function filterTable() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const statusValue = statusFilter.value;
+                const unitValue = unitFilter.value;
+                
+                const rows = tbody.querySelectorAll('tr');
+                
+                rows.forEach(row => {
+                    const patientName = row.querySelector('.patient-name').textContent.toLowerCase();
+                    const mrn = row.cells[2].textContent.toLowerCase();
+                    const status = row.querySelector('.status-badge').textContent.toLowerCase();
+                    
+                    let showRow = true;
+                    
+                    // Search filter
+                    if (searchTerm && !patientName.includes(searchTerm) && !mrn.includes(searchTerm)) {
+                        showRow = false;
+                    }
+                    
+                    // Status filter
+                    if (statusValue && !status.includes(statusValue)) {
+                        showRow = false;
+                    }
+                    
+                    // Unit filter (simplified for demo)
+                    if (unitValue) {
+                        // This would typically check against actual unit data
+                        showRow = true; // Simplified for demo
+                    }
+                    
+                    row.style.display = showRow ? '' : 'none';
+                });
+            }
+            
+            function updateSelectAllState() {
+                const checkedBoxes = document.querySelectorAll('.patient-checkbox:checked');
+                selectAllCheckbox.checked = checkedBoxes.length === patientCheckboxes.length;
+                selectAllCheckbox.indeterminate = checkedBoxes.length > 0 && checkedBoxes.length < patientCheckboxes.length;
+            }
+            
+            // Action button handlers
+            document.querySelectorAll('.btn-icon').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const action = this.title;
+                    const row = this.closest('tr');
+                    const patientName = row.querySelector('.patient-name').textContent;
+                    
+                    switch(action) {
+                        case 'View Details':
+                            alert(`Viewing details for ${patientName}`);
+                            break;
+                        case 'Edit':
+                            alert(`Editing ${patientName}`);
+                            break;
+                        case 'Print':
+                            alert(`Printing information for ${patientName}`);
+                            break;
+                    }
+                });
+            });
+            
+            // Pagination handlers
+            document.querySelectorAll('.pagination-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    if (!this.disabled && !this.classList.contains('active')) {
+                        // Remove active class from all buttons
+                        document.querySelectorAll('.pagination-btn').forEach(b => b.classList.remove('active'));
+                        // Add active class to clicked button
+                        this.classList.add('active');
+                        // Here you would typically load new data
+                        alert(`Loading page ${this.textContent.trim()}`);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

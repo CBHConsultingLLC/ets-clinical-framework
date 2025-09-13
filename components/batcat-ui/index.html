@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinical UI Component Library</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .batcat-hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            padding: 4rem 0;
+            margin-bottom: 3rem;
+        }
+        
+        .batcat-hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .batcat-hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+        }
+        
+        .batcat-component-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .batcat-component-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .batcat-component-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .batcat-component-card-body {
+            padding: 1.5rem;
+        }
+        
+        .batcat-component-card h5 {
+            color: #1f2937;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+        
+        .batcat-component-card p {
+            color: #6b7280;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+        
+        .batcat-component-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.25rem;
+            margin-bottom: 1rem;
+        }
+        
+        .batcat-component-tag {
+            background: #f3f4f6;
+            color: #374151;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .batcat-component-tag.primary {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+        
+        .batcat-component-tag.success {
+            background: #dcfce7;
+            color: #166534;
+        }
+        
+        .batcat-component-tag.warning {
+            background: #fef3c7;
+            color: #d97706;
+        }
+        
+        .batcat-component-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .batcat-component-btn {
+            flex: 1;
+            padding: 0.5rem 1rem;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            background: white;
+            color: #374151;
+            text-decoration: none;
+            text-align: center;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .batcat-component-btn:hover {
+            background: #f9fafb;
+            border-color: #9ca3af;
+            color: #1f2937;
+        }
+        
+        .batcat-component-btn.primary {
+            background: #3b82f6;
+            color: white;
+            border-color: #3b82f6;
+        }
+        
+        .batcat-component-btn.primary:hover {
+            background: #2563eb;
+            border-color: #2563eb;
+            color: white;
+        }
+        
+        .batcat-section {
+            margin-bottom: 4rem;
+        }
+        
+        .batcat-section h2 {
+            color: #1f2937;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .batcat-features {
+            background: #f8fafc;
+            padding: 3rem 0;
+            margin: 3rem 0;
+        }
+        
+        .batcat-feature {
+            text-align: center;
+            padding: 1rem;
+        }
+        
+        .batcat-feature i {
+            font-size: 2.5rem;
+            color: #3b82f6;
+            margin-bottom: 1rem;
+        }
+        
+        .batcat-feature h4 {
+            color: #1f2937;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+        
+        .batcat-feature p {
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+        
+        .batcat-footer {
+            background: #1f2937;
+            color: white;
+            padding: 3rem 0 2rem;
+            margin-top: 4rem;
+        }
+        
+        .batcat-footer h5 {
+            color: white;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .batcat-footer ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .batcat-footer ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .batcat-footer ul li a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        .batcat-footer ul li a:hover {
+            color: white;
+        }
+        
+        .batcat-footer-bottom {
+            border-top: 1px solid #374151;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            text-align: center;
+            color: #9ca3af;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="batcat-hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1>Clinical UI Component Library</h1>
+                    <p>Comprehensive UI components designed for clinical applications, optimized for healthcare workflows with jQuery, Bootstrap 5, and Tabulator integration.</p>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <i class="fas fa-hospital" style="font-size: 8rem; opacity: 0.3;"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="batcat-features">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="batcat-feature">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h4>Responsive Design</h4>
+                        <p>All components adapt seamlessly to different screen sizes and devices</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="batcat-feature">
+                        <i class="fas fa-universal-access"></i>
+                        <h4>Accessible</h4>
+                        <p>Built with accessibility in mind, following WCAG guidelines</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="batcat-feature">
+                        <i class="fas fa-palette"></i>
+                        <h4>Customizable</h4>
+                        <p>Easy to customize colors, fonts, and styling to match your brand</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="batcat-feature">
+                        <i class="fas fa-code"></i>
+                        <h4>Framework Ready</h4>
+                        <p>Works seamlessly with jQuery, Bootstrap 5, and Tabulator</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Components Section -->
+    <section class="batcat-section">
+        <div class="container">
+            <h2>UI Components</h2>
+            <div class="row">
+                <!-- Header Component -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="batcat-component-card">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDQwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjM2I4MmY2Ii8+CjxyZWN0IHg9IjIwIiB5PSI4MCIgd2lkdGg9IjM2MCIgaGVpZ2h0PSI0MCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjIpIi8+Cjx0ZXh0IHg9IjIwIiB5PSI5NSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0id2hpdGUiPk5hdmlnYXRpb24gTWVudTwvdGV4dD4KPC9zdmc+" alt="Header Component">
+                        <div class="batcat-component-card-body">
+                            <h5>Header Component</h5>
+                            <p>Responsive navigation header with branding, menu items, user actions, and notifications.</p>
+                            <div class="batcat-component-tags">
+                                <span class="batcat-component-tag primary">Navigation</span>
+                                <span class="batcat-component-tag">Responsive</span>
+                                <span class="batcat-component-tag">Bootstrap 5</span>
+                            </div>
+                            <div class="batcat-component-actions">
+                                <a href="batcat-header.html" class="batcat-component-btn primary">View Demo</a>
+                                <a href="#" class="batcat-component-btn">Documentation</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Footer Component -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="batcat-component-card">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDQwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjZjhmYWZjIi8+CjxyZWN0IHg9IjAiIHk9IjE2MCIgd2lkdGg9IjQwMCIgaGVpZ2h0PSI0MCIgZmlsbD0iI2U1ZTdlYiIvPgo8dGV4dCB4PSIyMCIgeT0iMTgwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IiM2YjcyODAiPkZvb3RlciBMaW5rcyBhbmQgSW5mb3JtYXRpb248L3RleHQ+Cjwvc3ZnPg==" alt="Footer Component">
+                        <div class="batcat-component-card-body">
+                            <h5>Footer Component</h5>
+                            <p>Comprehensive footer with multiple sections, social links, and legal information.</p>
+                            <div class="batcat-component-tags">
+                                <span class="batcat-component-tag primary">Layout</span>
+                                <span class="batcat-component-tag">Multi-column</span>
+                                <span class="batcat-component-tag">Social</span>
+                            </div>
+                            <div class="batcat-component-actions">
+                                <a href="batcat-footer.html" class="batcat-component-btn primary">View Demo</a>
+                                <a href="#" class="batcat-component-btn">Documentation</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Table Component -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="batcat-component-card">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDQwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjAwIiBmaWxsPSJ3aGl0ZSIvPgo8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjZjhmYWZjIi8+CjxyZWN0IHg9IjAiIHk9IjQwIiB3aWR0aD0iNDAwIiBoZWlnaD0iNDAiIGZpbGw9IiNmOWZhZmEiLz4KPHJlY3QgeD0iMCIgeT0iODAiIHdpZHRoPSI0MDAiIGhlaWdodD0iNDAiIGZpbGw9IndoaXRlIi8+CjxyZWN0IHg9IjAiIHk9IjEyMCIgd2lkdGg9IjQwMCIgaGVpZ2h0PSI0MCIgZmlsbD0iI2Y5ZmFmYSIvPgo8cmVjdCB4PSIwIiB5PSIxNjAiIHdpZHRoPSI0MDAiIGhlaWdodD0iNDAiIGZpbGw9IndoaXRlIi8+Cjx0ZXh0IHg9IjIwIiB5PSIyNSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iIzFmMjkzNyI+UGF0aWVudCBOYW1lPC90ZXh0Pgo8dGV4dCB4PSIxNTAiIHk9IjI1IiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjMWYyOTM3Ij5TdGF0dXM8L3RleHQ+Cjx0ZXh0IHg9IjI4MCIgeT0iMjUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiMxZjI5MzciPlJvb208L3RleHQ+Cjwvc3ZnPg==" alt="Table Component">
+                        <div class="batcat-component-card-body">
+                            <h5>Table Component</h5>
+                            <p>Advanced data table with sorting, filtering, pagination, and Tabulator integration.</p>
+                            <div class="batcat-component-tags">
+                                <span class="batcat-component-tag primary">Data Display</span>
+                                <span class="batcat-component-tag">Tabulator</span>
+                                <span class="batcat-component-tag success">Interactive</span>
+                            </div>
+                            <div class="batcat-component-actions">
+                                <a href="batcat-table.html" class="batcat-component-btn primary">View Demo</a>
+                                <a href="#" class="batcat-component-btn">Documentation</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Input Components -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="batcat-component-card">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDQwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjAwIiBmaWxsPSJ3aGl0ZSIvPgo8cmVjdCB4PSIyMCIgeT0iMjAiIHdpZHRoPSIzNjAiIGhlaWdodD0iNDAiIGZpbGw9IiNmOWZhZmEiIGJvcmRlcj0iMXB4IHNvbGlkICNkMWQ1ZGIiIGJvcmRlci1yYWRpdXM9IjZweCIvPgo8cmVjdCB4PSIyMCIgeT0iNzAiIHdpZHRoPSIzNjAiIGhlaWdodD0iNDAiIGZpbGw9IiNmOWZhZmEiIGJvcmRlcj0iMXB4IHNvbGlkICNkMWQ1ZGIiIGJvcmRlci1yYWRpdXM9IjZweCIvPgo8cmVjdCB4PSIyMCIgeT0iMTIwIiB3aWR0aD0iMzYwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjZjlmYWZhIiBib3JkZXI9IjFweCBzb2xpZCAjZDFkNWRiIiBib3JkZXItcmFkaXVzPSI2cHgiLz4KPHRleHQgeD0iMzAiIHk9IjQ1IiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IiM2YjcyODAiPkZvcm0gSW5wdXRzPC90ZXh0Pgo8L3N2Zz4=" alt="Input Components">
+                        <div class="batcat-component-card-body">
+                            <h5>Input Components</h5>
+                            <p>Comprehensive form inputs including text, select, checkbox, radio, and textarea.</p>
+                            <div class="batcat-component-tags">
+                                <span class="batcat-component-tag primary">Forms</span>
+                                <span class="batcat-component-tag">Validation</span>
+                                <span class="batcat-component-tag">Accessible</span>
+                            </div>
+                            <div class="batcat-component-actions">
+                                <a href="batcat-inputs.html" class="batcat-component-btn primary">View Demo</a>
+                                <a href="#" class="batcat-component-btn">Documentation</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Media Components -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="batcat-component-card">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDQwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjAwIiBmaWxsPSJ3aGl0ZSIvPgo8cmVjdCB4PSIyMCIgeT0iMjAiIHdpZHRoPSIxNjAiIGhlaWdodD0iMTIwIiBmaWxsPSIjZjNmNGY2IiBib3JkZXI9IjFweCBzb2xpZCAjZDFkNWRiIiBib3JkZXItcmFkaXVzPSI2cHgiLz4KPGNpcmNsZSBjeD0iMTAwIiBjeT0iODAiIHI9IjMwIiBmaWxsPSIjZTVlN2ViIi8+Cjx0ZXh0IHg9IjEwMCIgeT0iMTUwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IiM2YjcyODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPk1lZGljYWwgSW1hZ2U8L3RleHQ+CjxyZWN0IHg9IjIwMCIgeT0iMjAiIHdpZHRoPSIxNjAiIGhlaWdodD0iMTIwIiBmaWxsPSIjZjNmNGY2IiBib3JkZXI9IjFweCBzb2xpZCAjZDFkNWRiIiBib3JkZXItcmFkaXVzPSI2cHgiLz4KPGNpcmNsZSBjeD0iMjgwIiBjeT0iODAiIHI9IjMwIiBmaWxsPSIjZTVlN2ViIi8+Cjx0ZXh0IHg9IjI4MCIgeT0iMTUwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IiM2YjcyODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkNoYXJ0PC90ZXh0Pgo8L3N2Zz4=" alt="Media Components">
+                        <div class="batcat-component-card-body">
+                            <h5>Media Components</h5>
+                            <p>Image galleries, video players, and interactive charts for clinical data visualization.</p>
+                            <div class="batcat-component-tags">
+                                <span class="batcat-component-tag primary">Media</span>
+                                <span class="batcat-component-tag">Charts</span>
+                                <span class="batcat-component-tag warning">Interactive</span>
+                            </div>
+                            <div class="batcat-component-actions">
+                                <a href="batcat-media.html" class="batcat-component-btn primary">View Demo</a>
+                                <a href="#" class="batcat-component-btn">Documentation</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Rich Text Editor -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="batcat-component-card">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDQwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjAwIiBmaWxsPSJ3aGl0ZSIvPgo8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjZjhmYWZjIi8+CjxyZWN0IHg9IjAiIHk9IjQwIiB3aWR0aD0iNDAwIiBoZWlnaHQ9IjE2MCIgZmlsbD0iI2Y5ZmFmYSIvPgo8dGV4dCB4PSIyMCIgeT0iMjUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiMxZjI5MzciPkZvcm1hdHRpbmcgVG9vbGJhcjwvdGV4dD4KPHRleHQgeD0iMjAiIHk9IjYwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IiM2YjcyODAiPkNsYXNzaWMgTm90ZXM8L3RleHQ+Cjx0ZXh0IHg9IjIwIiB5PSI4MCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyIiBmaWxsPSIjNmI3MjgwIj5QYXRpZW50IEFzc2Vzc21lbnQ8L3RleHQ+Cjx0ZXh0IHg9IjIwIiB5PSIxMDAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgZmlsbD0iIzZiNzI4MCI+Vml0YWwgU2lnbnM8L3RleHQ+Cjx0ZXh0IHg9IjIwIiB5PSIxMjAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgZmlsbD0iIzZiNzI4MCI+QXNzZXNzbWVudCBhbmQgUGxhbjwvdGV4dD4KPC9zdmc+" alt="Rich Text Editor">
+                        <div class="batcat-component-card-body">
+                            <h5>Rich Text Editor</h5>
+                            <p>Full-featured rich text editor with clinical templates and formatting tools.</p>
+                            <div class="batcat-component-tags">
+                                <span class="batcat-component-tag primary">Editor</span>
+                                <span class="batcat-component-tag">Templates</span>
+                                <span class="batcat-component-tag success">Clinical</span>
+                            </div>
+                            <div class="batcat-component-actions">
+                                <a href="batcat-rich-text.html" class="batcat-component-btn primary">View Demo</a>
+                                <a href="#" class="batcat-component-btn">Documentation</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Integration Section -->
+    <section class="batcat-section">
+        <div class="container">
+            <h2>Framework Integration</h2>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="text-center p-4">
+                        <i class="fab fa-js-square" style="font-size: 3rem; color: #3b82f6; margin-bottom: 1rem;"></i>
+                        <h4>jQuery</h4>
+                        <p>All components are built with jQuery for easy integration and manipulation.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="text-center p-4">
+                        <i class="fab fa-bootstrap" style="font-size: 3rem; color: #7952b3; margin-bottom: 1rem;"></i>
+                        <h4>Bootstrap 5</h4>
+                        <p>Leverages Bootstrap 5's grid system and utility classes for responsive design.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="text-center p-4">
+                        <i class="fas fa-table" style="font-size: 3rem; color: #10b981; margin-bottom: 1rem;"></i>
+                        <h4>Tabulator</h4>
+                        <p>Advanced table functionality with sorting, filtering, and pagination.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="batcat-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                <h5>Clinical UI Components</h5>
+                <p>Professional healthcare-focused UI components that provide a consistent and accessible foundation for clinical applications.</p>
+                </div>
+                <div class="col-lg-2">
+                    <h5>Components</h5>
+                    <ul>
+                        <li><a href="batcat-header.html">Header</a></li>
+                        <li><a href="batcat-footer.html">Footer</a></li>
+                        <li><a href="batcat-table.html">Table</a></li>
+                        <li><a href="batcat-inputs.html">Inputs</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h5>Media</h5>
+                    <ul>
+                        <li><a href="batcat-media.html">Images</a></li>
+                        <li><a href="batcat-media.html">Videos</a></li>
+                        <li><a href="batcat-media.html">Charts</a></li>
+                        <li><a href="batcat-rich-text.html">Rich Text</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h5>Resources</h5>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Examples</a></li>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h5>Frameworks</h5>
+                    <ul>
+                        <li><a href="#">jQuery</a></li>
+                        <li><a href="#">Bootstrap 5</a></li>
+                        <li><a href="#">Tabulator</a></li>
+                        <li><a href="#">Chart.js</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="batcat-footer-bottom">
+                <p>&copy; 2024 Clinical UI Component Library. Built for healthcare professionals.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            console.log('Clinical UI Component Library loaded');
+        });
+    </script>
+</body>
+</html>

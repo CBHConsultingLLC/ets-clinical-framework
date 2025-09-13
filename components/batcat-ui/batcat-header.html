@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinical Header Component</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .batcat-header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .batcat-header .navbar-brand {
+            font-weight: 600;
+            font-size: 1.5rem;
+            color: white !important;
+        }
+        
+        .batcat-header .nav-link {
+            color: rgba(255,255,255,0.9) !important;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .batcat-header .nav-link:hover {
+            color: white !important;
+        }
+        
+        .batcat-header .dropdown-menu {
+            border: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .batcat-header .user-info {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .batcat-header .user-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .batcat-header .notification-badge {
+            position: relative;
+        }
+        
+        .batcat-header .notification-badge .badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #ef4444;
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 0.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- batcat-UI Header Component -->
+    <header class="batcat-header">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <!-- Brand/Logo -->
+                    <a class="navbar-brand" href="#">
+                        <i class="fas fa-hospital me-2"></i>
+                        Clinical Portal
+                    </a>
+                    
+                    <!-- Mobile Toggle -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    
+                    <!-- Navigation Menu -->
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#dashboard">
+                                    <i class="fas fa-tachometer-alt me-1"></i>
+                                    Dashboard
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#patients">
+                                    <i class="fas fa-users me-1"></i>
+                                    Patients
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#medications">
+                                    <i class="fas fa-pills me-1"></i>
+                                    Medications
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                    <i class="fas fa-chart-line me-1"></i>
+                                    Reports
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#clinical-reports">Clinical Reports</a></li>
+                                    <li><a class="dropdown-item" href="#lab-reports">Lab Reports</a></li>
+                                    <li><a class="dropdown-item" href="#imaging-reports">Imaging Reports</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        
+                        <!-- Right Side Actions -->
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link notification-badge" href="#notifications">
+                                    <i class="fas fa-bell"></i>
+                                    <span class="badge">3</span>
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle user-info" href="#" role="button" data-bs-toggle="dropdown">
+                                    <div class="user-avatar">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <span>Dr. Smith</span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="#profile">Profile</a></li>
+                                    <li><a class="dropdown-item" href="#settings">Settings</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="#logout">Logout</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Usage Documentation -->
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-12">
+                <h2>Clinical Header Component</h2>
+                <p class="lead">A responsive header component designed for clinical applications with modern healthcare UI patterns.</p>
+                
+                <h3>Features</h3>
+                <ul>
+                    <li><strong>Responsive Design:</strong> Adapts to different screen sizes with Bootstrap 5</li>
+                    <li><strong>Brand Integration:</strong> Customizable logo and brand colors</li>
+                    <li><strong>Navigation Menu:</strong> Primary navigation with dropdown support</li>
+                    <li><strong>User Actions:</strong> Notifications, user profile, and settings</li>
+                    <li><strong>Accessibility:</strong> ARIA compliant with proper keyboard navigation</li>
+                </ul>
+                
+                <h3>Usage</h3>
+                <pre><code>&lt;header class="batcat-header"&gt;
+    &lt;div class="container-fluid"&gt;
+        &lt;nav class="navbar navbar-expand-lg"&gt;
+            &lt;div class="container-fluid"&gt;
+                &lt;a class="navbar-brand" href="#"&gt;
+                    &lt;i class="fas fa-hospital me-2"&gt;&lt;/i&gt;
+                    Your Brand
+                &lt;/a&gt;
+                &lt;!-- Navigation content --&gt;
+            &lt;/div&gt;
+        &lt;/nav&gt;
+    &lt;/div&gt;
+&lt;/header&gt;</code></pre>
+                
+                <h3>Customization</h3>
+                <ul>
+                    <li>Modify CSS variables for color scheme</li>
+                    <li>Add/remove navigation items</li>
+                    <li>Customize user actions and dropdowns</li>
+                    <li>Integrate with your authentication system</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Add any custom JavaScript functionality here
+            console.log('Clinical Header component loaded');
+        });
+    </script>
+</body>
+</html>

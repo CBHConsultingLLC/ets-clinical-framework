@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinical Input Components</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .batcat-input-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .batcat-input-label {
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .batcat-input-label.required::after {
+            content: " *";
+            color: #dc2626;
+        }
+        
+        .batcat-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+            background: white;
+        }
+        
+        .batcat-input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        
+        .batcat-input:disabled {
+            background: #f9fafb;
+            color: #9ca3af;
+            cursor: not-allowed;
+        }
+        
+        .batcat-input.error {
+            border-color: #dc2626;
+        }
+        
+        .batcat-input.error:focus {
+            box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+        }
+        
+        .batcat-input-help {
+            font-size: 0.75rem;
+            color: #6b7280;
+            margin-top: 0.25rem;
+        }
+        
+        .batcat-input-error {
+            font-size: 0.75rem;
+            color: #dc2626;
+            margin-top: 0.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        .batcat-input-icon {
+            position: relative;
+        }
+        
+        .batcat-input-icon .batcat-input {
+            padding-left: 2.5rem;
+        }
+        
+        .batcat-input-icon .icon {
+            position: absolute;
+            left: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9ca3af;
+        }
+        
+        .batcat-select {
+            position: relative;
+        }
+        
+        .batcat-select select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 0.5rem center;
+            background-repeat: no-repeat;
+            background-size: 1.5em 1.5em;
+            padding-right: 2.5rem;
+        }
+        
+        .batcat-checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .batcat-checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .batcat-checkbox {
+            width: 1.25rem;
+            height: 1.25rem;
+            border: 2px solid #d1d5db;
+            border-radius: 4px;
+            background: white;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.2s ease;
+        }
+        
+        .batcat-checkbox:checked {
+            background: #3b82f6;
+            border-color: #3b82f6;
+        }
+        
+        .batcat-checkbox:checked::after {
+            content: "✓";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+        
+        .batcat-radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .batcat-radio-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .batcat-radio {
+            width: 1.25rem;
+            height: 1.25rem;
+            border: 2px solid #d1d5db;
+            border-radius: 50%;
+            background: white;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.2s ease;
+        }
+        
+        .batcat-radio:checked {
+            border-color: #3b82f6;
+        }
+        
+        .batcat-radio:checked::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0.5rem;
+            height: 0.5rem;
+            background: #3b82f6;
+            border-radius: 50%;
+        }
+        
+        .batcat-textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        .batcat-input-group-inline {
+            display: flex;
+            gap: 1rem;
+            align-items: end;
+        }
+        
+        .batcat-input-group-inline .batcat-input-group {
+            flex: 1;
+            margin-bottom: 0;
+        }
+        
+        .batcat-switch {
+            position: relative;
+            display: inline-block;
+            width: 3rem;
+            height: 1.5rem;
+        }
+        
+        .batcat-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .batcat-switch-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #d1d5db;
+            transition: 0.2s;
+            border-radius: 1.5rem;
+        }
+        
+        .batcat-switch-slider:before {
+            position: absolute;
+            content: "";
+            height: 1.125rem;
+            width: 1.125rem;
+            left: 0.1875rem;
+            bottom: 0.1875rem;
+            background-color: white;
+            transition: 0.2s;
+            border-radius: 50%;
+        }
+        
+        .batcat-switch input:checked + .batcat-switch-slider {
+            background-color: #3b82f6;
+        }
+        
+        .batcat-switch input:checked + .batcat-switch-slider:before {
+            transform: translateX(1.5rem);
+        }
+        
+        .batcat-form-section {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .batcat-form-section h4 {
+            color: #1f2937;
+            margin-bottom: 1rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <h2>Clinical Input Components</h2>
+        <p class="lead">Comprehensive input components designed for clinical applications with modern healthcare UI patterns.</p>
+        
+        <!-- Text Inputs -->
+        <div class="batcat-form-section">
+            <h4>Text Inputs</h4>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="batcat-input-group">
+                        <label class="batcat-input-label required">Patient Name</label>
+                        <input type="text" class="batcat-input" placeholder="Enter patient name" value="John Doe">
+                        <div class="batcat-input-help">Enter the patient's full legal name</div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="batcat-input-group">
+                        <label class="batcat-input-label">Email Address</label>
+                        <div class="batcat-input-icon">
+                            <i class="fas fa-envelope icon"></i>
+                            <input type="email" class="batcat-input" placeholder="patient@example.com">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="batcat-input-group">
+                        <label class="batcat-input-label">Phone Number</label>
+                        <div class="batcat-input-icon">
+                            <i class="fas fa-phone icon"></i>
+                            <input type="tel" class="batcat-input" placeholder="(555) 123-4567">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="batcat-input-group">
+                        <label class="batcat-input-label">Date of Birth</label>
+                        <input type="date" class="batcat-input" value="1990-01-15">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="batcat-input-group">
+                <label class="batcat-input-label">Error State Example</label>
+                <input type="text" class="batcat-input error" placeholder="This field has an error">
+                <div class="batcat-input-error">
+                    <i class="fas fa-exclamation-circle"></i>
+                    This field is required
+                </div>
+            </div>
+            
+            <div class="batcat-input-group">
+                <label class="batcat-input-label">Disabled Input</label>
+                <input type="text" class="batcat-input" placeholder="This field is disabled" disabled>
+            </div>
+        </div>
+        
+        <!-- Select Inputs -->
+        <div class="batcat-form-section">
+            <h4>Select Inputs</h4>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="batcat-input-group">
+                        <label class="batcat-input-label required">Department</label>
+                        <div class="batcat-select">
+                            <select class="batcat-input">
+                                <option value="">Select Department</option>
+                                <option value="cardiology">Cardiology</option>
+                                <option value="neurology" selected>Neurology</option>
+                                <option value="orthopedics">Orthopedics</option>
+                                <option value="pediatrics">Pediatrics</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="batcat-input-group">
+                        <label class="batcat-input-label">Priority Level</label>
+                        <div class="batcat-select">
+                            <select class="batcat-input">
+                                <option value="">Select Priority</option>
+                                <option value="low">Low</option>
+                                <option value="medium" selected>Medium</option>
+                                <option value="high">High</option>
+                                <option value="urgent">Urgent</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Checkboxes -->
+        <div class="batcat-form-section">
+            <h4>Checkboxes</h4>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="batcat-input-group">
+                        <label class="batcat-input-label">Allergies</label>
+                        <div class="batcat-checkbox-group">
+                            <div class="batcat-checkbox-item">
+                                <input type="checkbox" class="batcat-checkbox" id="allergy-penicillin" checked>
+                                <label for="allergy-penicillin">Penicillin</label>
+                            </div>
+                            <div class="batcat-checkbox-item">
+                                <input type="checkbox" class="batcat-checkbox" id="allergy-sulfa">
+                                <label for="allergy-sulfa">Sulfa drugs</label>
+                            </div>
+                            <div class="batcat-checkbox-item">
+                                <input type="checkbox" class="batcat-checkbox" id="allergy-aspirin">
+                                <label for="allergy-aspirin">Aspirin</label>
+                            </div>
+                            <div class="batcat-checkbox-item">
+                                <input type="checkbox" class="batcat-checkbox" id="allergy-none" checked>
+                                <label for="allergy-none">No known allergies</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="batcat-input-group">
+                        <label class="batcat-input-label">Consent Forms</label>
+                        <div class="batcat-checkbox-group">
+                            <div class="batcat-checkbox-item">
+                                <input type="checkbox" class="batcat-checkbox" id="consent-treatment" checked>
+                                <label for="consent-treatment">Treatment consent</label>
+                            </div>
+                            <div class="batcat-checkbox-item">
+                                <input type="checkbox" class="batcat-checkbox" id="consent-privacy">
+                                <label for="consent-privacy">Privacy policy</label>
+                            </div>
+                            <div class="batcat-checkbox-item">
+                                <input type="checkbox" class="batcat-checkbox" id="consent-research">
+                                <label for="consent-research">Research participation</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Radio Buttons -->
+        <div class="batcat-form-section">
+            <h4>Radio Buttons</h4>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="batcat-input-group">
+                        <label class="batcat-input-label required">Gender</label>
+                        <div class="batcat-radio-group">
+                            <div class="batcat-radio-item">
+                                <input type="radio" class="batcat-radio" id="gender-male" name="gender" value="male">
+                                <label for="gender-male">Male</label>
+                            </div>
+                            <div class="batcat-radio-item">
+                                <input type="radio" class="batcat-radio" id="gender-female" name="gender" value="female" checked>
+                                <label for="gender-female">Female</label>
+                            </div>
+                            <div class="batcat-radio-item">
+                                <input type="radio" class="batcat-radio" id="gender-other" name="gender" value="other">
+                                <label for="gender-other">Other</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="batcat-input-group">
+                        <label class="batcat-input-label">Insurance Type</label>
+                        <div class="batcat-radio-group">
+                            <div class="batcat-radio-item">
+                                <input type="radio" class="batcat-radio" id="insurance-private" name="insurance" value="private" checked>
+                                <label for="insurance-private">Private</label>
+                            </div>
+                            <div class="batcat-radio-item">
+                                <input type="radio" class="batcat-radio" id="insurance-medicare" name="insurance" value="medicare">
+                                <label for="insurance-medicare">Medicare</label>
+                            </div>
+                            <div class="batcat-radio-item">
+                                <input type="radio" class="batcat-radio" id="insurance-medicaid" name="insurance" value="medicaid">
+                                <label for="insurance-medicaid">Medicaid</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Textarea and Switch -->
+        <div class="batcat-form-section">
+            <h4>Textarea and Toggle</h4>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="batcat-input-group">
+                        <label class="batcat-input-label">Clinical Notes</label>
+                        <textarea class="batcat-input batcat-textarea" placeholder="Enter clinical observations and notes...">Patient presents with mild headache and fatigue. Vital signs stable. No acute distress.</textarea>
+                        <div class="batcat-input-help">Enter detailed clinical observations and treatment notes</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="batcat-input-group">
+                        <label class="batcat-input-label">Emergency Contact</label>
+                        <div class="d-flex align-items-center gap-2">
+                            <label class="batcat-switch">
+                                <input type="checkbox" checked>
+                                <span class="batcat-switch-slider"></span>
+                            </label>
+                            <span>Notify emergency contact</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Inline Form -->
+        <div class="batcat-form-section">
+            <h4>Inline Form Layout</h4>
+            <div class="batcat-input-group-inline">
+                <div class="batcat-input-group">
+                    <label class="batcat-input-label">Search</label>
+                    <input type="text" class="batcat-input" placeholder="Search patients...">
+                </div>
+                <div class="batcat-input-group">
+                    <label class="batcat-input-label">Filter</label>
+                    <div class="batcat-select">
+                        <select class="batcat-input">
+                            <option value="">All Departments</option>
+                            <option value="cardiology">Cardiology</option>
+                            <option value="neurology">Neurology</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="batcat-input-group">
+                    <button class="btn btn-primary">Search</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Usage Documentation -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <h3>Features</h3>
+                <ul>
+                    <li><strong>Text Inputs:</strong> Standard text, email, phone, and date inputs</li>
+                    <li><strong>Select Dropdowns:</strong> Custom styled select elements</li>
+                    <li><strong>Checkboxes:</strong> Multiple selection with custom styling</li>
+                    <li><strong>Radio Buttons:</strong> Single selection with custom styling</li>
+                    <li><strong>Textarea:</strong> Multi-line text input with resize control</li>
+                    <li><strong>Toggle Switch:</strong> Binary on/off control</li>
+                    <li><strong>Validation States:</strong> Error, success, and disabled states</li>
+                    <li><strong>Icons:</strong> Support for input icons</li>
+                </ul>
+                
+                <h3>Usage</h3>
+                <pre><code>&lt;div class="batcat-input-group"&gt;
+    &lt;label class="batcat-input-label required"&gt;Field Label&lt;/label&gt;
+    &lt;input type="text" class="batcat-input" placeholder="Enter value"&gt;
+    &lt;div class="batcat-input-help"&gt;Help text&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                
+                <h3>Validation</h3>
+                <pre><code>// Add error state
+input.classList.add('error');
+
+// Show error message
+const errorDiv = document.createElement('div');
+errorDiv.className = 'batcat-input-error';
+errorDiv.innerHTML = '&lt;i class="fas fa-exclamation-circle"&gt;&lt;/i&gt; Error message';</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Custom checkbox and radio behavior
+            $('.batcat-checkbox, .batcat-radio').on('click', function() {
+                if ($(this).is(':checkbox')) {
+                    $(this).prop('checked', !$(this).prop('checked'));
+                } else {
+                    $(this).prop('checked', true);
+                    $(`input[name="${$(this).attr('name')}"]`).not(this).prop('checked', false);
+                }
+            });
+            
+            // Form validation example
+            $('.batcat-input').on('blur', function() {
+                if ($(this).val() === '' && $(this).hasClass('required')) {
+                    $(this).addClass('error');
+                } else {
+                    $(this).removeClass('error');
+                }
+            });
+            
+            console.log('Clinical Input components loaded');
+        });
+    </script>
+</body>
+</html>

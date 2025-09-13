@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinical Footer Component</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .batcat-footer {
+            background: #f8fafc;
+            border-top: 1px solid #e2e8f0;
+            padding: 2rem 0 1rem;
+            margin-top: auto;
+        }
+        
+        .batcat-footer .footer-brand {
+            margin-bottom: 1rem;
+        }
+        
+        .batcat-footer .footer-brand img {
+            height: 40px;
+            width: auto;
+        }
+        
+        .batcat-footer .footer-section h6 {
+            color: #1e293b;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .batcat-footer .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .batcat-footer .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .batcat-footer .footer-section ul li a {
+            color: #64748b;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .batcat-footer .footer-section ul li a:hover {
+            color: #3b82f6;
+        }
+        
+        .batcat-footer .footer-bottom {
+            border-top: 1px solid #e2e8f0;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            text-align: center;
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+        
+        .batcat-footer .social-links a {
+            color: #64748b;
+            font-size: 1.25rem;
+            margin-right: 1rem;
+            transition: color 0.3s ease;
+        }
+        
+        .batcat-footer .social-links a:hover {
+            color: #3b82f6;
+        }
+        
+        .batcat-footer .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        
+        .batcat-footer .footer-links a {
+            color: #64748b;
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+        
+        .batcat-footer .footer-links a:hover {
+            color: #3b82f6;
+        }
+    </style>
+</head>
+<body>
+    <div class="d-flex flex-column min-vh-100">
+        <!-- Main Content Area -->
+        <div class="flex-grow-1">
+            <div class="container mt-4">
+                <h2>Clinical Footer Component</h2>
+                <p class="lead">A comprehensive footer component designed for clinical applications.</p>
+            </div>
+        </div>
+        
+        <!-- batcat-UI Footer Component -->
+        <footer class="batcat-footer">
+            <div class="container">
+                <div class="row">
+                    <!-- Brand Section -->
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="footer-brand">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiB2aWV3Qm94PSIwIDAgMTIwIDQwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiByeD0iNCIgZmlsbD0iIzNiODJmNiIvPgo8dGV4dCB4PSI2MCIgeT0iMjUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5DbGluaWNhbDwvdGV4dD4KPC9zdmc+" alt="Clinical Portal" class="mb-2">
+                            <p class="text-muted small">Empowering healthcare professionals with innovative clinical tools and workflows.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Links -->
+                    <div class="col-lg-2 col-md-6 mb-4">
+                        <div class="footer-section">
+                            <h6>Quick Links</h6>
+                            <ul>
+                                <li><a href="#dashboard">Dashboard</a></li>
+                                <li><a href="#patients">Patients</a></li>
+                                <li><a href="#medications">Medications</a></li>
+                                <li><a href="#reports">Reports</a></li>
+                                <li><a href="#settings">Settings</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Clinical Tools -->
+                    <div class="col-lg-2 col-md-6 mb-4">
+                        <div class="footer-section">
+                            <h6>Clinical Tools</h6>
+                            <ul>
+                                <li><a href="#patient-summary">Patient Summary</a></li>
+                                <li><a href="#medication-administration">Med Administration</a></li>
+                                <li><a href="#clinical-reports">Clinical Reports</a></li>
+                                <li><a href="#lab-results">Lab Results</a></li>
+                                <li><a href="#imaging">Imaging</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Support -->
+                    <div class="col-lg-2 col-md-6 mb-4">
+                        <div class="footer-section">
+                            <h6>Support</h6>
+                            <ul>
+                                <li><a href="#help">Help Center</a></li>
+                                <li><a href="#documentation">Documentation</a></li>
+                                <li><a href="#training">Training</a></li>
+                                <li><a href="#contact">Contact Us</a></li>
+                                <li><a href="#feedback">Feedback</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Legal -->
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="footer-section">
+                            <h6>Legal & Compliance</h6>
+                            <ul>
+                                <li><a href="#privacy">Privacy Policy</a></li>
+                                <li><a href="#terms">Terms of Service</a></li>
+                                <li><a href="#hipaa">HIPAA Compliance</a></li>
+                                <li><a href="#security">Security</a></li>
+                                <li><a href="#accessibility">Accessibility</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Footer Bottom -->
+                <div class="footer-bottom">
+                    <div class="footer-links">
+                        <a href="#privacy">Privacy</a>
+                        <a href="#terms">Terms</a>
+                        <a href="#cookies">Cookies</a>
+                        <a href="#accessibility">Accessibility</a>
+                        <a href="#sitemap">Sitemap</a>
+                    </div>
+                    
+                    <div class="social-links mb-2">
+                        <a href="#twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#linkedin"><i class="fab fa-linkedin"></i></a>
+                        <a href="#github"><i class="fab fa-github"></i></a>
+                        <a href="#youtube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    
+                    <p>&copy; 2024 Clinical Portal. All rights reserved. | Version 2.1.0</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Usage Documentation -->
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-12">
+                <h3>Features</h3>
+                <ul>
+                    <li><strong>Multi-column Layout:</strong> Organized sections for different types of links</li>
+                    <li><strong>Brand Integration:</strong> Logo and company information</li>
+                    <li><strong>Social Links:</strong> Integration with social media platforms</li>
+                    <li><strong>Legal Compliance:</strong> Privacy, terms, and accessibility links</li>
+                    <li><strong>Responsive Design:</strong> Adapts to different screen sizes</li>
+                </ul>
+                
+                <h3>Usage</h3>
+                <pre><code>&lt;footer class="batcat-footer"&gt;
+    &lt;div class="container"&gt;
+        &lt;div class="row"&gt;
+            &lt;div class="col-lg-3 col-md-6 mb-4"&gt;
+                &lt;div class="footer-brand"&gt;
+                    &lt;img src="logo.png" alt="Brand"&gt;
+                    &lt;p&gt;Description&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;!-- Additional sections --&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/footer&gt;</code></pre>
+                
+                <h3>Customization</h3>
+                <ul>
+                    <li>Modify color scheme using CSS variables</li>
+                    <li>Add/remove footer sections as needed</li>
+                    <li>Customize social media links</li>
+                    <li>Update legal and compliance links</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            console.log('Clinical Footer component loaded');
+        });
+    </script>
+</body>
+</html>
